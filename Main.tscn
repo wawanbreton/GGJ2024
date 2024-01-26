@@ -15,11 +15,7 @@ environment = SubResource("Environment_2sg5e")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.467482, 0.884002, 0, -0.884002, 0.467482, 0, 5.05088, 3.16586)
 
-[node name="Node3D" parent="." instance=ExtResource("1_i0gtf")]
+[node name="Background" parent="." instance=ExtResource("1_i0gtf")]
 
-[node name="Node3D2" parent="." instance=ExtResource("2_01k1f")]
+[node name="Wheelchair" parent="." instance=ExtResource("2_01k1f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0165499, 0)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.950884, 0.309548, 0, -0.309548, 0.950884, 0.0133972, 1.32697, 3.23438)
-fov = 38.8

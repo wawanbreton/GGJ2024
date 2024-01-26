@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbmi4w783qe8x"]
+[gd_scene load_steps=6 format=3 uid="uid://dbmi4w783qe8x"]
 
 [ext_resource type="PackedScene" uid="uid://b0trjlemwwco2" path="res://BigWheel.tscn" id="1_7n7ia"]
 [ext_resource type="Script" path="res://WheelChair.gd" id="1_fyvwc"]
 [ext_resource type="PackedScene" uid="uid://nr417r6mwd1a" path="res://SmallWheel.tscn" id="2_fp0qj"]
+[ext_resource type="Script" path="res://Camera.gd" id="2_g21cc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qedmp"]
 
@@ -18,6 +19,9 @@ shape = SubResource("BoxShape3D_qedmp")
 [node name="CSGBox3D" type="CSGBox3D" parent="Frame/CollisionShape3D"]
 use_collision = true
 
+[node name="Lookup" type="Node3D" parent="Frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17139, 0)
+
 [node name="RearRightWheel" parent="." instance=ExtResource("1_7n7ia")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.446106, 0.513818, -0.318319)
 
@@ -29,7 +33,7 @@ params/bias = 0.99
 motor/enable = true
 
 [node name="RearLeftWheel" parent="." instance=ExtResource("1_7n7ia")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.456543, 0.513818, -0.318319)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.446, 0.514, -0.318)
 
 [node name="PinJoint3D" type="HingeJoint3D" parent="RearLeftWheel"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
@@ -48,10 +52,18 @@ node_b = NodePath("..")
 params/bias = 0.99
 
 [node name="FrontLeftWheel" parent="." instance=ExtResource("2_fp0qj")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.366968, 0.0563397, 0.375402)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.365, 0.056, 0.375)
 
 [node name="PinJoint3D" type="HingeJoint3D" parent="FrontLeftWheel"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 node_a = NodePath("../../Frame")
 node_b = NodePath("..")
 params/bias = 0.99
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(-1, -1.77636e-15, -8.74228e-08, -2.83784e-08, 0.945848, 0.324611, 8.26886e-08, 0.324611, -0.945848, 0, 1.73455, -2.12756)
+fov = 58.5
+script = ExtResource("2_g21cc")
+lerp_speed = 10.0
+target = NodePath("../Frame/Lookup")
+offset = Vector3(0, 1, -2)
