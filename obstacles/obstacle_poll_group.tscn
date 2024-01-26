@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://u7bxhbhxodfn"]
+
+[ext_resource type="Script" path="res://Obstacle_poll_group.gd" id="1_mrh7v"]
+[ext_resource type="PackedScene" uid="uid://dbwll6vad7oj" path="res://obstacles/obstacle_poll.tscn" id="2_bjwvn"]
+
+[node name="ObstaclePollGroup" type="Node3D"]
+script = ExtResource("1_mrh7v")
+poll_scene = ExtResource("2_bjwvn")
+difficulty = "Hard"
