@@ -1,23 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbmi4w783qe8x"]
+[gd_scene load_steps=7 format=3 uid="uid://dbmi4w783qe8x"]
 
 [ext_resource type="PackedScene" uid="uid://b0trjlemwwco2" path="res://BigWheel.tscn" id="1_7n7ia"]
 [ext_resource type="Script" path="res://WheelChair.gd" id="1_fyvwc"]
 [ext_resource type="PackedScene" uid="uid://nr417r6mwd1a" path="res://SmallWheel.tscn" id="2_fp0qj"]
 [ext_resource type="Script" path="res://Camera.gd" id="2_g21cc"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qedmp"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_g7rjj"]
+size = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_42jkw"]
+size = Vector3(0.7, 0.7, 0.7)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_fyvwc")
 
 [node name="Frame" type="RigidBody3D" parent="."]
+mass = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Frame"]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.562866, 0)
-shape = SubResource("BoxShape3D_qedmp")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.570862, 0)
+shape = SubResource("BoxShape3D_g7rjj")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Frame/CollisionShape3D"]
-use_collision = true
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Frame/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00799584, 0)
+mesh = SubResource("BoxMesh_42jkw")
+skeleton = NodePath("")
 
 [node name="Lookup" type="Node3D" parent="Frame"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17139, 0)
@@ -25,7 +32,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17139, 0)
 [node name="RearRightWheel" parent="." instance=ExtResource("1_7n7ia")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.446106, 0.513818, -0.318319)
 
-[node name="PinJoint3D" type="HingeJoint3D" parent="RearRightWheel"]
+[node name="Joint" type="HingeJoint3D" parent="RearRightWheel"]
 transform = Transform3D(1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, 0, 0, 0)
 node_a = NodePath("../../Frame")
 node_b = NodePath("..")
@@ -35,33 +42,31 @@ motor/enable = true
 [node name="RearLeftWheel" parent="." instance=ExtResource("1_7n7ia")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.446, 0.514, -0.318)
 
-[node name="PinJoint3D" type="HingeJoint3D" parent="RearLeftWheel"]
+[node name="Joint" type="HingeJoint3D" parent="RearLeftWheel"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 node_a = NodePath("../../Frame")
 node_b = NodePath("..")
 params/bias = 0.99
 motor/enable = true
 
-[node name="FrontRightWheel" parent="." instance=ExtResource("2_fp0qj")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.365158, 0.0563397, 0.375402)
-
-[node name="PinJoint3D" type="HingeJoint3D" parent="FrontRightWheel"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-node_a = NodePath("../../Frame")
-node_b = NodePath("..")
-params/bias = 0.99
-
 [node name="FrontLeftWheel" parent="." instance=ExtResource("2_fp0qj")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.365, 0.056, 0.375)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.365, 0.111987, 0.375)
 
-[node name="PinJoint3D" type="HingeJoint3D" parent="FrontLeftWheel"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+[node name="Joint" type="HingeJoint3D" parent="FrontLeftWheel"]
+transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
 node_a = NodePath("../../Frame")
 node_b = NodePath("..")
-params/bias = 0.99
+
+[node name="FrontRightWheel" parent="." instance=ExtResource("2_fp0qj")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.365158, 0.112327, 0.375402)
+
+[node name="Joint" type="HingeJoint3D" parent="FrontRightWheel"]
+transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+node_a = NodePath("../../Frame")
+node_b = NodePath("..")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(-1, -1.77636e-15, -8.74228e-08, -2.83784e-08, 0.945848, 0.324611, 8.26886e-08, 0.324611, -0.945848, 0, 1.73455, -2.12756)
+transform = Transform3D(-1, -2.13163e-14, -8.74228e-08, -2.83784e-08, 0.945848, 0.324611, 8.26886e-08, 0.324611, -0.945848, 0, 1.73455, -2.12756)
 fov = 58.5
 script = ExtResource("2_g21cc")
 lerp_speed = 10.0

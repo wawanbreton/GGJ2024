@@ -1,14 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0trjlemwwco2"]
+[gd_scene load_steps=3 format=3 uid="uid://b0trjlemwwco2"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gsy8p"]
+height = 0.1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ne6iq"]
 height = 0.1
 
 [node name="Node3D" type="RigidBody3D"]
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_gsy8p")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_ne6iq")
-
-[node name="RLWheel" type="CSGCylinder3D" parent="CollisionShape3D"]
-use_collision = true
-height = 0.1
-sides = 32
