@@ -19,8 +19,9 @@ var heights = [0,0,0,0]
 
 func _ready():
 	for i in len(heights):
+		#print(i)
 		if is_nan(heights[i]):
 			var wall = _WALL_SCN.instantiate()
-			wall.position += 1.5 * _sides[i]
+			wall.position += 1.45 * _sides[i]
 			wall.rotate_y(_rotations[i])
 			self.add_child(wall)

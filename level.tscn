@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://drqpkmnwn3qgp"]
+[gd_scene load_steps=3 format=3 uid="uid://drqpkmnwn3qgp"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_ouw8i"]
+[ext_resource type="Script" path="res://debugcam.gd" id="2_y866g"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_ouw8i")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+script = ExtResource("2_y866g")
