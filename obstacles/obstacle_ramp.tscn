@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bitfatt0dha6j"]
+
+[ext_resource type="Script" path="res://obstacles/obstacle_ramp.gd" id="1_mtccf"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uhrr2"]
+points = PackedVector3Array(-0.507936, -0.507937, -0.507937, 0.507921, 0.507937, 0.507937, 0.507921, 0.507937, -0.507937, 0.499985, -0.5, 0.5, -0.507936, -0.476116, 0.507937, 0.499985, -0.5, -0.5, 0.476101, 0.507937, -0.507937, -0.507936, -0.507937, 0.507937, 0.476101, 0.507937, 0.507937, -0.507936, -0.476116, -0.507937)
+
+[sub_resource type="PrismMesh" id="PrismMesh_sylx4"]
+left_to_right = 1.0
+
+[node name="ObstacleRamp" type="StaticBody3D"]
+script = ExtResource("1_mtccf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.267, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_uhrr2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("PrismMesh_sylx4")

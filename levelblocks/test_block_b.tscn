@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdkpb2j44ignd"]
+
+[ext_resource type="Script" path="res://levelblocks/test_block_b.gd" id="1_tgopi"]
+
+[node name="TestBlockB" type="Node3D"]
+script = ExtResource("1_tgopi")
+
+[node name="VisualShape" type="CSGSphere3D" parent="."]

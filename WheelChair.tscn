@@ -9,10 +9,12 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7rjj"]
 size = Vector3(0.7, 0.7, 0.7)
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 script = ExtResource("1_fyvwc")
 
 [node name="Frame" type="RigidBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
 mass = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Frame"]
@@ -26,6 +28,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17139, 0)
 
 [node name="RearRightWheel" parent="." instance=ExtResource("1_7n7ia")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.343704, 0.440248, -0.0948032)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Joint" type="HingeJoint3D" parent="RearRightWheel"]
 transform = Transform3D(1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, 0, 0, 0)
@@ -36,6 +40,8 @@ motor/enable = true
 
 [node name="RearLeftWheel" parent="." instance=ExtResource("1_7n7ia")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.344, 0.44, -0.094)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Joint" type="HingeJoint3D" parent="RearLeftWheel"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
@@ -46,6 +52,8 @@ motor/enable = true
 
 [node name="FrontLeftWheel" parent="." instance=ExtResource("2_fp0qj")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.365, 0.240389, 0.574987)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Joint" type="HingeJoint3D" parent="FrontLeftWheel"]
 transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
@@ -54,6 +62,8 @@ node_b = NodePath("..")
 
 [node name="FrontRightWheel" parent="." instance=ExtResource("2_fp0qj")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.365158, 0.240729, 0.575389)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Joint" type="HingeJoint3D" parent="FrontRightWheel"]
 transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)

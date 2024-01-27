@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cof6t2vs4swn6"]
+
+[ext_resource type="Script" path="res://CheckPoint.gd" id="1_rolmr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cvwoi"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="PrismMesh" id="PrismMesh_0hb0p"]
+size = Vector3(4, 2, 4)
+
+[node name="Node3D" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_rolmr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_cvwoi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_0hb0p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

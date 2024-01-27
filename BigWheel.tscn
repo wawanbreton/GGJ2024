@@ -7,6 +7,7 @@ height = 0.08
 radius = 0.3
 
 [node name="Node3D" type="RigidBody3D"]
+can_sleep = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_ne6iq")
