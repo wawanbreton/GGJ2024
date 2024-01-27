@@ -1,0 +1,11 @@
+[gd_scene load_steps=6 format=3 uid="uid://b87o388g77m5b"]
+
+[ext_resource type="Script" path="res://Audio/random_audio_stream_player.gd" id="1_154n0"]
+[ext_resource type="AudioStream" uid="uid://kwbvig6kyp8e" path="res://Audio/whiek.wav" id="2_lhlwm"]
+[ext_resource type="AudioStream" uid="uid://orrx15k0m3s7" path="res://Audio/whouk.wav" id="3_5aem4"]
+[ext_resource type="AudioStream" uid="uid://trxndjnk4s0f" path="res://Audio/wip2.wav" id="4_gmw2c"]
+[ext_resource type="AudioStream" uid="uid://bgay5sksrcj7t" path="res://Audio/wip.wav" id="5_kwhc1"]
+
+[node name="AudioStreamAcceleration" type="AudioStreamPlayer3D"]
+script = ExtResource("1_154n0")
+streams = Array[AudioStream]([ExtResource("2_lhlwm"), ExtResource("3_5aem4"), ExtResource("4_gmw2c"), ExtResource("5_kwhc1")])

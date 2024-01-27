@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbmi4w783qe8x"]
+[gd_scene load_steps=8 format=3 uid="uid://dbmi4w783qe8x"]
 
 [ext_resource type="PackedScene" uid="uid://b0trjlemwwco2" path="res://BigWheel.tscn" id="1_7n7ia"]
 [ext_resource type="Script" path="res://WheelChair.gd" id="1_fyvwc"]
 [ext_resource type="PackedScene" uid="uid://nr417r6mwd1a" path="res://SmallWheel.tscn" id="2_fp0qj"]
 [ext_resource type="Script" path="res://Camera.gd" id="2_g21cc"]
 [ext_resource type="PackedScene" uid="uid://c4ra4yuurauov" path="res://Frame.blend" id="2_xiye1"]
+[ext_resource type="PackedScene" uid="uid://b87o388g77m5b" path="res://Audio/AudioStreamAcceleration.tscn" id="6_tliky"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7rjj"]
 size = Vector3(0.7, 0.7, 0.7)
@@ -77,3 +78,5 @@ script = ExtResource("2_g21cc")
 lerp_speed = 10.0
 target = NodePath("../Frame/Lookup")
 offset = Vector3(0, 1, -2)
+
+[node name="AudioStreamAcceleration" parent="." instance=ExtResource("6_tliky")]
