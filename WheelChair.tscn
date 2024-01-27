@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbmi4w783qe8x"]
+[gd_scene load_steps=6 format=3 uid="uid://dbmi4w783qe8x"]
 
 [ext_resource type="PackedScene" uid="uid://b0trjlemwwco2" path="res://BigWheel.tscn" id="1_7n7ia"]
 [ext_resource type="Script" path="res://WheelChair.gd" id="1_fyvwc"]
 [ext_resource type="PackedScene" uid="uid://nr417r6mwd1a" path="res://SmallWheel.tscn" id="2_fp0qj"]
-[ext_resource type="Script" path="res://Camera.gd" id="2_g21cc"]
 [ext_resource type="PackedScene" uid="uid://c4ra4yuurauov" path="res://Frame.blend" id="2_xiye1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7rjj"]
@@ -21,9 +20,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.439488, 0)
 shape = SubResource("BoxShape3D_g7rjj")
 
 [node name="Frame2" parent="CollisionShape3D" instance=ExtResource("2_xiye1")]
-
-[node name="Lookup" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04002, 0)
 
 [node name="RearRightWheel" parent="." instance=ExtResource("1_7n7ia")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.343704, 0.308874, -0.0948032)
@@ -68,12 +64,3 @@ collision_mask = 3
 transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
 node_a = NodePath("../..")
 node_b = NodePath("..")
-
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(-1, -2.30926e-14, -8.74228e-08, -2.83784e-08, 0.945848, 0.324611, 8.26886e-08, 0.324611, -0.945848, 0, 1.60318, -2.12756)
-current = true
-fov = 58.5
-script = ExtResource("2_g21cc")
-lerp_speed = 5.0
-target = NodePath("../Lookup")
-offset = Vector3(0, 1, -2)

@@ -10,12 +10,19 @@ func _ready():
 
 func _on_control_start_new_game():
     var wheelchair = get_node("Wheelchair")
+    var lookup_node = null
     if wheelchair:
+        lookup_node = wheelchair.get_node('Lookup')
+        wheelchair.remove_child(lookup_node)
         remove_child(wheelchair)
         wheelchair.queue_free()
+    else:
+        lookup_node = get_node('Lookup')
+        remove_child(lookup_node)
     
     wheelchair = WheelChair.instantiate()
     wheelchair.name = "Wheelchair"
+    wheelchair.add_child(lookup_node)
     add_child(wheelchair)
     
     get_node("Checkpoint1").checked = false
