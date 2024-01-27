@@ -135,5 +135,5 @@ func _ready():
 	while len(path_to_end) <= 0:
 		self._remove_all()
 		path_to_end = self._make_maze()
-	self._debug_mark_path(path_to_end)
+	#self._debug_mark_path(path_to_end)
 	## TODO: set (rest of) checkpoints
