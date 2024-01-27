@@ -1,15 +1,15 @@
 extends Block
 
 const _OBSTACLE_SCENES = [
-	null,
-	null,
+	#null,
+	#null,
 	null,
 	null,
 	null,
 	#preload("res://obstacles/obstacles/obstacle_double_doors.tscn"),
 	preload("res://obstacles/obstacles/obstacle_movable_box.tscn"),
 	preload("res://obstacles/obstacles/obstacle_pole.tscn"),
-	preload("res://obstacles/obstacles/obstacle_wall_1x1.tscn"),
+	#preload("res://obstacles/obstacles/obstacle_wall_1x1.tscn"),
 ]
 
 func _init():
