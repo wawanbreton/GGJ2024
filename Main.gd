@@ -1,6 +1,8 @@
 extends Node3D
 
 var WheelChair = preload("res://WheelChair.tscn")
+@onready var audio_stream_lose = $Camera3D/AudioStreamLose
+
 
 var first = true
 
@@ -41,6 +43,8 @@ func _on_control_start_new_game():
 	get_node("Menu").visible = false
 	get_node("HUD").visible = true
 	get_node("HUD").start_countdown()
+	
+	trigger_music_muffle(false)
 
 func _on_hud_countdown_over():
 	get_node("Wheelchair").active = true
@@ -57,8 +61,18 @@ func _on_wheelchair_tilt():
 	self._on_game_ended(null)
 
 func _on_game_ended(score):
-	
+
+	trigger_music_muffle(true)
+	audio_stream_lose.play_in_order()
 	get_node("Wheelchair").active = false
 	get_node("HUD").visible = false
 	get_node("Menu").set_score(score)
 	get_node("Menu").visible = true
+
+
+func trigger_music_muffle(is_muffle:bool):
+	var bus_index = AudioServer.get_bus_index("Losing")
+
+	AudioServer.set_bus_effect_enabled(bus_index,0,is_muffle)
+	AudioServer.set_bus_effect_enabled(bus_index,1,is_muffle)
+	AudioServer.set_bus_effect_enabled(bus_index,2,is_muffle)
