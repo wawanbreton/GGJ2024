@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4ed6petbfp7w"]
+[gd_scene load_steps=7 format=3 uid="uid://b4ed6petbfp7w"]
 
 [ext_resource type="PackedScene" uid="uid://2tm4edtiy5h2" path="res://Floor.tscn" id="1_i0gtf"]
 [ext_resource type="Script" path="res://Main.gd" id="1_yh6gx"]
-[ext_resource type="PackedScene" uid="uid://dbmi4w783qe8x" path="res://WheelChair.tscn" id="2_01k1f"]
 [ext_resource type="PackedScene" uid="uid://c7ipf58q4301f" path="res://HUD.tscn" id="3_d0lgg"]
 [ext_resource type="PackedScene" uid="uid://b4r8dksu3kfe8" path="res://Menu.tscn" id="4_msian"]
 [ext_resource type="PackedScene" uid="uid://cof6t2vs4swn6" path="res://CheckPoint.tscn" id="6_vbe7t"]
@@ -21,8 +20,6 @@ environment = SubResource("Environment_2sg5e")
 transform = Transform3D(1, 0, 0, 0, 0.467482, 0.884002, 0, -0.884002, 0.467482, 0, 5.05088, 3.16586)
 
 [node name="Background" parent="." instance=ExtResource("1_i0gtf")]
-
-[node name="Wheelchair" parent="." instance=ExtResource("2_01k1f")]
 
 [node name="HUD" parent="." instance=ExtResource("3_d0lgg")]
 visible = false

@@ -1,4 +1,4 @@
-extends Node3D
+extends RigidBody3D
 
 @export var active: bool : set = set_active
 
