@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://2tm4edtiy5h2"]
 
-[ext_resource type="Texture2D" uid="uid://bcdllfr2k4pqd" path="res://be_vue2.png" id="1_uml62"]
+[ext_resource type="Texture2D" uid="uid://c28x650erd1l8" path="res://floor.png" id="1_au7fg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vthuq"]
-albedo_texture = ExtResource("1_uml62")
+albedo_texture = ExtResource("1_au7fg")
 uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_o5v0s"]
