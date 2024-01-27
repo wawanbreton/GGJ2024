@@ -18,4 +18,4 @@ transform = Transform3D(1, 0, 0, 0, 0.467482, 0.884002, 0, -0.884002, 0.467482, 
 [node name="Background" parent="." instance=ExtResource("1_i0gtf")]
 
 [node name="Wheelchair" parent="." instance=ExtResource("2_01k1f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0165499, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.126262, 0)
