@@ -99,5 +99,3 @@ node_b = NodePath("..")
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -0.00180791, 0.101761)
 
 [node name="AudioStreamAcceleration" parent="." instance=ExtResource("6_1kbkq")]
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -52,7 +52,7 @@ RightMotorDown={
 
 [layer_names]
 
-3d_physics/layer_3="WallCrashAudio"
+3d_physics/layer_3="Layer 3"
 
 [physics]
 
