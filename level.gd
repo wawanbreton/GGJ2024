@@ -68,22 +68,17 @@ func _add_block_at(i, at_grid_pos):
 	return level_block
 
 func _set_any_correct_block(last_grid_pos, height, at_grid_pos):
-	var rot = 0  # TODO: take into account rotations
 	var pick_list = []
 	var dir_idx = last_grid_pos - at_grid_pos
 	if dir_idx.length_squared() == 0:
 		pass
 	else:
 		for i in len(_SCENES):
-			if _SCENES[i][1][_DIF_TO_DIR_MAP[dir_idx]] == height:   # TODO?: go on _approximate_ heights
+			if _SCENES[i][1][_DIF_TO_DIR_MAP[dir_idx]] == height:
 				pick_list.append(i)
 	if len(pick_list) == 0:
 		pick_list = [0]
 	pick_list.shuffle()
-	#var level_block = self._instance_scene(pick_list.pop_front())
-	#level_block.position = at_grid_pos * BLOCK_DIMENSIONS
-	#_blocks[at_grid_pos] = level_block
-	#self.add_child(level_block)
 	var level_block = self._add_block_at(pick_list.pop_front(), at_grid_pos)
 	return level_block.heights if "heights" in level_block else [0,0,0,0]
 
@@ -136,6 +131,17 @@ func _make_maze():
 			break
 	path_to_end.reverse()
 
+	if len(path_to_end) <= 0:
+		return path_to_end
+
+	# Set checkpoints.
+	var next_check_when = len(path_to_end) / 4
+	var check_pts = []
+	var checkpt_strs = ["Checkpoint1", "Checkpoint2", "CheckpointFinal"]
+	for i in range(1,4):  # '0' would be the start, which is a strange place for a checkpt.
+		var check_node = self.get_parent().get_node(checkpt_strs[i - 1])
+		check_node.global_position = (path_to_end[i*next_check_when] + Vector3(0.5, 0.5, 0.5)) * Vector3(3, 3, 3)
+
 	return path_to_end
 
 func _debug_mark_path(path_to_end):
@@ -166,14 +172,13 @@ func _ready():
 		var next_heights = scn[1]
 		for i in range(1, 4):  # already added the 0th one, so starting from '1'
 			next_heights = self._rotate_array(next_heights)
-			really_all_scenes.append([scn[0], next_heights, i]) #i * (TAU * 0.25)])
+			really_all_scenes.append([scn[0], next_heights, i])
 	_SCENES = really_all_scenes
 
 	randomize()
-	## TODO: randomize start, finish
+	# TODO??: randomize start, finish
 	var path_to_end = []
 	while len(path_to_end) <= 0:
 		self._remove_all()
 		path_to_end = self._make_maze()
 	self._debug_mark_path(path_to_end)
-	## TODO: set (rest of) checkpoints
