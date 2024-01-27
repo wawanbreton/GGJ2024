@@ -1,9 +1,5 @@
 extends Block
 
-@export var mesh_instance: MeshInstance3D
-
-
-@onready var mesh_instance_3d = $MeshInstance3D
 #@export var ramp_angle: float = 15
 
 
@@ -11,7 +7,7 @@ extends Block
 func _ready():
 	print(height)
 	heights = [0,NAN,NAN,height]
-	mesh_instance.scale.y = BLOCK_DIMENSION*height
+	mesh_instance.mesh.size.y = height*BLOCK_MAX_HEIGHT
 	mesh_instance.create_convex_collision(true, true)
 	
 	#only needed if we generate the scale based on the height
