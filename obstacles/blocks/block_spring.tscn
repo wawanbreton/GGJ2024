@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1h8kkjhe57d7"]
+[gd_scene load_steps=5 format=3 uid="uid://c1h8kkjhe57d7"]
 
 [ext_resource type="Script" path="res://obstacles/blocks/block_spring.gd" id="1_pcykc"]
+[ext_resource type="Texture2D" uid="uid://c28x650erd1l8" path="res://floor.png" id="2_hpq6l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78gwb"]
+albedo_texture = ExtResource("2_hpq6l")
 
 [sub_resource type="BoxMesh" id="BoxMesh_eb3s6"]
+material = SubResource("StandardMaterial3D_78gwb")
 size = Vector3(3, 3, 3)
 
 [node name="BlockSpring" type="StaticBody3D"]

@@ -3,3 +3,5 @@
 
 *.blend1
 
+addons/godot-jolt/windows/godot-jolt_windows-x64_editor.dll
+addons/godot-jolt/windows/godot-jolt_windows-x86_editor.dll

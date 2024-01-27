@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c780g1mqks8ix"]
+[gd_scene load_steps=5 format=3 uid="uid://c780g1mqks8ix"]
 
 [ext_resource type="Script" path="res://obstacles/blocks/block_basic.gd" id="1_tuad1"]
+[ext_resource type="Texture2D" uid="uid://c28x650erd1l8" path="res://floor.png" id="2_lfpld"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7ibm"]
+albedo_texture = ExtResource("2_lfpld")
 
 [sub_resource type="BoxMesh" id="BoxMesh_unynj"]
+material = SubResource("StandardMaterial3D_s7ibm")
 size = Vector3(3, 3, 3)
 
 [node name="BlockBasic" type="StaticBody3D"]
