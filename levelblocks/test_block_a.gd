@@ -9,19 +9,20 @@ var _sides = [
 	Vector3(0,0,-1),
 ]
 var _rotations = [
-	0,
 	TAU * 0.25,
-	TAU * 0.50,
+	0,
 	TAU * 0.75,
+	TAU * 0.50,
 ]
 
 var heights = [0,0,0,0]
 
 func _ready():
+	var rand_col = Color(randf(), randf(), randf())
 	for i in len(heights):
-		#print(i)
 		if is_nan(heights[i]):
 			var wall = _WALL_SCN.instantiate()
-			wall.position += 1.45 * _sides[i]
+			wall.set_color(rand_col)
 			wall.rotate_y(_rotations[i])
+			wall.position += 1.35 * _sides[i]  #  should be nearly 1.5 x
 			self.add_child(wall)
