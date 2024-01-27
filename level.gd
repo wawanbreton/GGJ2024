@@ -3,7 +3,7 @@ extends Node3D
 const _TEST_A_SCN = preload("res://levelblocks/test_block_a.tscn")
 const _TEST_B_SCN = preload("res://levelblocks/test_block_b.tscn")  # use as marker
 
-const _SCENES := [
+var _SCENES := [
 	[_TEST_A_SCN, [0,0,0,0]],
 	[_TEST_A_SCN, [0,0,0,NAN]],
 	[_TEST_A_SCN, [0,NAN,0,NAN]],
@@ -11,6 +11,10 @@ const _SCENES := [
 	[_TEST_A_SCN, [NAN,NAN,NAN,0]],
 	[_TEST_A_SCN, [NAN,0,NAN,0]],
 	[_TEST_A_SCN, [NAN,NAN,0,0]],
+	[preload("res://obstacles/blocks/block_basic.tscn"), []],
+	[preload("res://obstacles/blocks/block_bridge.tscn"), []],
+	[preload("res://obstacles/blocks/block_ramp.tscn"), []],
+
 	#[preload("res://levelblocks/test_block_b.tscn"), [0,0,0,0]],
 
 	#preload("res://obstacles/obstacle_movable_box.tscn"),
@@ -20,16 +24,16 @@ const _SCENES := [
 	#preload("res://obstacles/obstacle_wall_1x1.tscn"),
 ]
 var _SIDES = [
-	Vector3(1,0,0),
-	Vector3(0,0,1),
-	Vector3(-1,0,0),
-	Vector3(0,0,-1),
+	Vector3(0,0,1),  # a
+	Vector3(1,0,0),  # b
+	Vector3(0,0,-1), # c
+	Vector3(-1,0,0), # d
 ]
 const _DIF_TO_DIR_MAP := {
-	Vector3(1,0,0): 0,
-	Vector3(0,0,1): 1,
-	Vector3(-1,0,0): 2,
-	Vector3(0,0,-1): 3,
+	Vector3(1,0,0): 1,
+	Vector3(0,0,1): 0,
+	Vector3(-1,0,0): 3,
+	Vector3(0,0,-1): 2,
 }
 
 const WIDTH := Vector2(-1,11)
@@ -123,17 +127,30 @@ func _make_maze():
 	return path_to_end
 
 func _debug_mark_path(path_to_end):
+	var fli = -1
 	for grid_pos in path_to_end:
+		fli += 1
 		var marker = _TEST_B_SCN.instantiate()
+		marker.red = (1.0 / len(path_to_end)) * fli
 		marker.position = grid_pos * BLOCK_DIMENSIONS
 		self.add_child(marker)
 
 func _ready():
+	for scn in _SCENES:
+		if len(scn[1]) <= 0:
+			var inst = scn[0].instantiate()
+			scn[1] = inst.heights
+
+			print(inst.name)
+			print(scn[1])
+
+			inst.queue_free()
+
 	randomize()
 	## TODO: randomize start, finish
 	var path_to_end = []
 	while len(path_to_end) <= 0:
 		self._remove_all()
 		path_to_end = self._make_maze()
-	#self._debug_mark_path(path_to_end)
+	self._debug_mark_path(path_to_end)
 	## TODO: set (rest of) checkpoints

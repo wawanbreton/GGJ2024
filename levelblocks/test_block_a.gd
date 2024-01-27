@@ -3,16 +3,16 @@ extends Node3D
 const _WALL_SCN := preload("res://levelblocks/test_wall.tscn")
 
 var _sides = [
-	Vector3(1,0,0),
-	Vector3(0,0,1),
-	Vector3(-1,0,0),
-	Vector3(0,0,-1),
+	Vector3(0,0,1),  # a
+	Vector3(1,0,0),  # b
+	Vector3(0,0,-1), # c
+	Vector3(-1,0,0), # d
 ]
 var _rotations = [
-	TAU * 0.25,
 	0,
-	TAU * 0.75,
+	TAU * 0.25,
 	TAU * 0.50,
+	TAU * 0.75,
 ]
 
 var heights = [0,0,0,0]
