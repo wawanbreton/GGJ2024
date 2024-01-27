@@ -1,12 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://cof6t2vs4swn6"]
+[gd_scene load_steps=7 format=3 uid="uid://cof6t2vs4swn6"]
 
 [ext_resource type="Script" path="res://CheckPoint.gd" id="1_rolmr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvwoi"]
 size = Vector3(4, 4, 4)
 
-[sub_resource type="PrismMesh" id="PrismMesh_0hb0p"]
-size = Vector3(4, 2, 4)
+[sub_resource type="Gradient" id="Gradient_t3psb"]
+offsets = PackedFloat32Array(0.00316456, 0.582278)
+colors = PackedColorArray(1, 0.98, 0.4, 1, 1, 1, 0.823529, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xdlpg"]
+gradient = SubResource("Gradient_t3psb")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_qpmww"]
+albedo_color = Color(1, 1, 0.654902, 1)
+albedo_texture = SubResource("GradientTexture1D_xdlpg")
+emission_enabled = true
+emission = Color(0.494118, 0.521569, 0.156863, 1)
+clearcoat_enabled = true
+clearcoat_roughness = 0.74
+
+[sub_resource type="TorusMesh" id="TorusMesh_0u0sw"]
+material = SubResource("ORMMaterial3D_qpmww")
 
 [node name="Node3D" type="Area3D"]
 collision_layer = 0
@@ -17,6 +32,20 @@ script = ExtResource("1_rolmr")
 shape = SubResource("BoxShape3D_cvwoi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PrismMesh_0hb0p")
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0)
+mesh = SubResource("TorusMesh_0u0sw")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+modulate = Color(1, 1, 0.152941, 1)
+outline_modulate = Color(0.94902, 0.45098, 0.180392, 1)
+text = "1"
+font_size = 128
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
