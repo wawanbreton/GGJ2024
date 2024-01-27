@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4ed6petbfp7w"]
+[gd_scene load_steps=13 format=3 uid="uid://b4ed6petbfp7w"]
 
 [ext_resource type="PackedScene" uid="uid://2tm4edtiy5h2" path="res://Floor.tscn" id="1_i0gtf"]
 [ext_resource type="Script" path="res://Main.gd" id="1_yh6gx"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://Camera.gd" id="6_3ggy4"]
 [ext_resource type="PackedScene" uid="uid://cof6t2vs4swn6" path="res://CheckPoint.tscn" id="6_vbe7t"]
 [ext_resource type="PackedScene" uid="uid://bvqrpit1ed7ph" path="res://Audio/MusicPlayer.tscn" id="7_yjk1q"]
+[ext_resource type="PackedScene" uid="uid://b87o388g77m5b" path="res://Audio/AudioStreamAcceleration.tscn" id="9_xf2bs"]
+[ext_resource type="AudioStream" uid="uid://cvbcwxvd6bada" path="res://Audio/lose/lose2.wav" id="10_0xtbv"]
+[ext_resource type="AudioStream" uid="uid://bnhd60i563osg" path="res://Audio/lose/boo-6377.mp3" id="11_mh2vv"]
 
 [sub_resource type="Environment" id="Environment_2sg5e"]
 background_mode = 1
@@ -49,6 +52,11 @@ offset = Vector3(0, 1, -2)
 
 [node name="AudioStreamPlayer3D" parent="Camera3D" instance=ExtResource("7_yjk1q")]
 transform = Transform3D(-1, -2.83784e-08, 8.26886e-08, -2.13163e-14, 0.945848, 0.324611, -8.74228e-08, 0.324611, -0.945848, 2.21421e-07, -0.825731, -2.53276)
+bus = &"Losing"
+
+[node name="AudioStreamLose" parent="Camera3D" instance=ExtResource("9_xf2bs")]
+transform = Transform3D(-1, -2.83784e-08, 8.26886e-08, -2.13163e-14, 0.945848, 0.324611, -8.74228e-08, 0.324611, -0.945848, 2.21421e-07, -0.825735, -2.53276)
+streams = Array[AudioStream]([ExtResource("10_0xtbv"), ExtResource("11_mh2vv")])
 
 [node name="Lookup" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04002, 0)
