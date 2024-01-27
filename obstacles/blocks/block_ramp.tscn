@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://xn8nk31mw47"]
+[gd_scene load_steps=5 format=3 uid="uid://xn8nk31mw47"]
 
 [ext_resource type="Script" path="res://obstacles/blocks/block_ramp.gd" id="1_q8mli"]
+[ext_resource type="Texture2D" uid="uid://c28x650erd1l8" path="res://floor.png" id="2_7tcic"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y763c"]
+albedo_texture = ExtResource("2_7tcic")
 
 [sub_resource type="PrismMesh" id="PrismMesh_sylx4"]
+material = SubResource("StandardMaterial3D_y763c")
 left_to_right = 1.0
 size = Vector3(3, 3, 3)
 
