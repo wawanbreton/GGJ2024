@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4ed6petbfp7w"]
+[gd_scene load_steps=5 format=3 uid="uid://b4ed6petbfp7w"]
 
 [ext_resource type="PackedScene" uid="uid://2tm4edtiy5h2" path="res://Floor.tscn" id="1_i0gtf"]
 [ext_resource type="PackedScene" uid="uid://dbmi4w783qe8x" path="res://WheelChair.tscn" id="2_01k1f"]
-[ext_resource type="PackedScene" uid="uid://dbwll6vad7oj" path="res://obstacles/obstacle_poll.tscn" id="4_8m7f0"]
-[ext_resource type="PackedScene" uid="uid://u7bxhbhxodfn" path="res://obstacles/obstacle_poll_group.tscn" id="5_xeihv"]
+[ext_resource type="PackedScene" uid="uid://drqpkmnwn3qgp" path="res://level.tscn" id="3_to28k"]
 
 [sub_resource type="Environment" id="Environment_2sg5e"]
 background_mode = 1
@@ -26,8 +25,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0165499, 0)
 transform = Transform3D(1, 0, 0, 0, 0.950884, 0.309548, 0, -0.309548, 0.950884, 0.0133972, 1.32697, 3.23438)
 fov = 38.8
 
-[node name="ObstaclePoll" parent="." instance=ExtResource("4_8m7f0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08507, 0.978492, 0)
-
-[node name="ObstaclePollGroup" parent="." instance=ExtResource("5_xeihv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.10996, 0, 0)
+[node name="Level" parent="." instance=ExtResource("3_to28k")]
