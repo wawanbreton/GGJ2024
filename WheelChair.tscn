@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://nr417r6mwd1a" path="res://SmallWheel.tscn" id="2_fp0qj"]
 [ext_resource type="PackedScene" uid="uid://c4ra4yuurauov" path="res://Frame.blend" id="2_xiye1"]
 [ext_resource type="PackedScene" uid="uid://chpc3abcqg3x5" path="res://RagDoll.tscn" id="5_4d63m"]
-[ext_resource type="PackedScene" path="res://Audio/AudioStreamAcceleration.tscn" id="6_grimd"]
+[ext_resource type="PackedScene" uid="uid://b87o388g77m5b" path="res://Audio/AudioStreamAcceleration.tscn" id="6_1kbkq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7rjj"]
 size = Vector3(0.448987, 0.324152, 0.537311)
@@ -25,7 +25,7 @@ size = Vector3(0.0555435, 0.070182, 0.387868)
 [node name="Frame" type="RigidBody3D"]
 collision_layer = 3
 collision_mask = 3
-mass = 3.0
+mass = 5.0
 script = ExtResource("1_fyvwc")
 
 [node name="FrameMesh" parent="." instance=ExtResource("2_xiye1")]
@@ -36,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.40334, 0.1633
 shape = SubResource("BoxShape3D_g7rjj")
 
 [node name="CollisionShapeBelt" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.924832, 0.238797)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 1.01788, 0.238797)
 shape = SubResource("BoxShape3D_v5mx5")
 
 [node name="CollisionShapeBack" type="CollisionShape3D" parent="."]
@@ -98,4 +98,4 @@ node_b = NodePath("..")
 [node name="240127 - RagDoll GGJ2024 - armature - linked" parent="." instance=ExtResource("5_4d63m")]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -0.00180791, 0.101761)
 
-[node name="AudioStreamAcceleration" parent="." instance=ExtResource("6_grimd")]
+[node name="AudioStreamAcceleration" parent="." instance=ExtResource("6_1kbkq")]

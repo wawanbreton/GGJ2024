@@ -16,3 +16,6 @@ func set_checked(new_checked):
 func _on_body_entered(_body):
 	if self.active:
 		self.checked = true
+
+func _process(delta):
+	self.rotate_y(delta * 0.55)

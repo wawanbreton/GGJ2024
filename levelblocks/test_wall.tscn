@@ -1,13 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://bv3adrwog07i7"]
+[gd_scene load_steps=15 format=3 uid="uid://bv3adrwog07i7"]
 
 [ext_resource type="Script" path="res://levelblocks/test_wall.gd" id="1_shu1l"]
 [ext_resource type="Texture2D" uid="uid://unsckvu58mh5" path="res://img/vertical-gray-wall-small.png" id="2_ds7db"]
 [ext_resource type="Texture2D" uid="uid://cxl2i1hbeddj" path="res://img/vertical-gray-wall-small-7.png" id="3_lfhqd"]
+[ext_resource type="PackedScene" uid="uid://b87o388g77m5b" path="res://Audio/AudioStreamAcceleration.tscn" id="5_6i24b"]
+[ext_resource type="AudioStream" uid="uid://co34e7umpdkl1" path="res://Audio/crash_sounds/crash1.wav" id="6_rphtb"]
+[ext_resource type="AudioStream" uid="uid://dmmdhok1i1i1u" path="res://Audio/crash_sounds/crash2.wav" id="7_sd2ce"]
 [ext_resource type="Texture2D" uid="uid://cmt0pksvnrxc2" path="res://img/vertical-gray-wall-small-5.png" id="7_sopi4"]
+[ext_resource type="AudioStream" uid="uid://dlpvwhvofhboy" path="res://Audio/crash_sounds/crash3.wav" id="8_isflc"]
+[ext_resource type="AudioStream" uid="uid://chmjwddliyvfn" path="res://Audio/crash_sounds/crash4.wav" id="9_s758t"]
+[ext_resource type="AudioStream" uid="uid://cdrephpyc5tm8" path="res://Audio/crash_sounds/crash5.wav" id="10_nvj57"]
+[ext_resource type="AudioStream" uid="uid://dpo41k8j7tf2d" path="res://Audio/crash_sounds/crash6.wav" id="11_6gvdg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rvtdy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exosa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4jm74"]
+size = Vector3(1, 1, 2)
 
 [node name="TestWall" type="Node3D"]
 transform = Transform3D(2.8, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0, 0)
@@ -21,3 +31,15 @@ shape = SubResource("BoxShape3D_rvtdy")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
 material_override = SubResource("StandardMaterial3D_exosa")
+
+[node name="CrashSoundArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrashSoundArea"]
+shape = SubResource("BoxShape3D_4jm74")
+
+[node name="AudioStreamCrashes" parent="." instance=ExtResource("5_6i24b")]
+streams = Array[AudioStream]([ExtResource("6_rphtb"), ExtResource("7_sd2ce"), ExtResource("8_isflc"), ExtResource("9_s758t"), ExtResource("10_nvj57"), ExtResource("11_6gvdg")])
+
+[connection signal="body_entered" from="CrashSoundArea" to="." method="_on_crash_sound_area_body_entered"]

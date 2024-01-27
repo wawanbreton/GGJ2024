@@ -43,6 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
 
 [node name="Label3D" type="Label3D" parent="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+billboard = 2
 modulate = Color(1, 1, 0.152941, 1)
 outline_modulate = Color(0.94902, 0.45098, 0.180392, 1)
 text = "1"

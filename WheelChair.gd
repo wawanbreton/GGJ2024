@@ -1,6 +1,11 @@
 extends Node3D
 
 @export var active: bool : set = set_active, get = get_active
+@onready var rear_left_wheel = $RearLeftWheel
+@onready var rear_right_wheel = $RearRightWheel
+
+var rotation_counter_left : float = 0
+var rotation_counter_right : float = 0
 
 signal start_game
 signal tilt
@@ -41,3 +46,27 @@ func _physics_process(delta):
 				 right * target_speed,
 				 delta * acceleration)
 	node_right.set_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY, right)
+	
+	audio_squeek(delta, left, right)
+
+	
+func audio_squeek(delta, left, right):
+	
+	#printt (left, right)
+	rotation_counter_left += rear_left_wheel.angular_velocity.length()*delta*3*sign(left)
+	#printt(rotation_counter_left, rear_left_wheel.angular_velocity.x, rear_left_wheel.angular_velocity.length())
+	
+	if rotation_counter_left >= TAU:
+		$AudioStreamAcceleration.set_pitch("forward")
+		$AudioStreamAcceleration.play_random()
+		rotation_counter_left = 0
+	if rotation_counter_left <= -TAU:
+		$AudioStreamAcceleration.set_pitch("backward")
+		$AudioStreamAcceleration.play_random()
+		rotation_counter_left = 0	
+	#if left > 1:
+		#rotation_counter_left += delta
+		##$AudioStreamAcceleration.
+		#$AudioStreamAcceleration.play_random()
+	#if left < -1:
+		#$AudioStreamAcceleration.play_random()
