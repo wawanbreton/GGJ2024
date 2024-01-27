@@ -70,7 +70,3 @@ func audio_squeek(delta, left, right):
 		#$AudioStreamAcceleration.play_random()
 	#if left < -1:
 		#$AudioStreamAcceleration.play_random()
-
-
-func _on_body_entered(other_body):
-	print(other_body.get_collision_layer_value(3))
