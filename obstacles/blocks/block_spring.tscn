@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://s2rru0ksxts8"]
+
+[ext_resource type="Script" path="res://obstacles/blocks/block_spring.gd" id="1_pcykc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_eb3s6"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fyv7f"]
+size = Vector3(3, 0.1, 3)
+
+[node name="BlockSpring" type="Node3D"]
+script = ExtResource("1_pcykc")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="BlockSpring" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BlockSpring"]
+mesh = SubResource("BoxMesh_eb3s6")
+skeleton = NodePath("")
+
+[node name="BlockSpringBase" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BlockSpringBase"]
+mesh = SubResource("BoxMesh_fyv7f")
+skeleton = NodePath("")
+
+[connection signal="timeout" from="Timer" to="BlockSpring" method="_on_timer_timeout"]
