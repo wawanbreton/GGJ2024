@@ -20,8 +20,8 @@ func _physics_process(delta):
 	if self.active and (absf(euler.x) > PI / 3 or absf(euler.z) > PI / 3):
 		emit_signal("tilt")
 
-	var acceleration = 0.5
-	var target_speed = 20
+	var acceleration = 5
+	var target_speed = 5
 	
 	var left_up = Input.get_action_strength("LeftMotorUp")
 	var left_down = Input.get_action_strength("LeftMotorDown")
