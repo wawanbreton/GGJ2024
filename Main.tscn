@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4ed6petbfp7w"]
+[gd_scene load_steps=5 format=3 uid="uid://b4ed6petbfp7w"]
 
 [ext_resource type="PackedScene" uid="uid://2tm4edtiy5h2" path="res://Floor.tscn" id="1_i0gtf"]
 [ext_resource type="PackedScene" uid="uid://dbmi4w783qe8x" path="res://WheelChair.tscn" id="2_01k1f"]
@@ -7,6 +7,8 @@
 background_mode = 1
 background_color = Color(0.740676, 0.861286, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gqqrt"]
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -14,6 +16,17 @@ environment = SubResource("Environment_2sg5e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.467482, 0.884002, 0, -0.884002, 0.467482, 0, 5.05088, 3.16586)
+
+[node name="RigidBodyPlane" type="RigidBody3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.256, 0)
+collision_layer = 15
+collision_mask = 15
+gravity_scale = 0.0
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/RigidBodyPlane"]
+transform = Transform3D(10000, 0, 0, 0, 1, 0, 0, 0, 10000, 0, 0, 0)
+shape = SubResource("BoxShape3D_gqqrt")
 
 [node name="Background" parent="." instance=ExtResource("1_i0gtf")]
 
