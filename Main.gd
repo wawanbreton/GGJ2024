@@ -2,6 +2,7 @@ extends Node3D
 
 var WheelChair = preload("res://WheelChair.tscn")
 
+var first = true
 
 func _ready():
 	get_node("Checkpoint1").checked_changed.connect(Callable(self, "_on_checkpoint_checked_changed").bind(get_node("Checkpoint2")))
@@ -9,6 +10,10 @@ func _ready():
 	get_node("CheckpointFinal").checked_changed.connect(Callable(self, "_on_checkpoint_checked_changed").bind(null))
 
 func _on_control_start_new_game():
+	if not first:
+		self.get_node("Level").reset()
+	first = false
+
 	var wheelchair = self.get_node("Wheelchair") # This issues a warning but find_type won't work
 	var lookup_node = null
 	if wheelchair:
