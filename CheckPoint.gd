@@ -13,6 +13,6 @@ func set_checked(new_checked):
     get_node("MeshInstance3D").visible = !new_checked
     emit_signal("checked_changed", new_checked)
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
     if self.active:
         self.checked = true

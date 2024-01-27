@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0vue61xyekh4"]
+
+[ext_resource type="Script" path="res://obstacles/obstacles/obstacle_double_doors.gd" id="1_68shm"]
+[ext_resource type="PackedScene" uid="uid://dannx8c4crrn6" path="res://obstacles/obstacle_parts/obstacle_part_door.tscn" id="1_x4ly8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x582p"]
+size = Vector3(0.1, 2, 0.1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jmt1m"]
+points = PackedVector3Array(0.0611111, 1.00741, 0.0611111, -0.0574074, -1.00741, -0.0574074, -0.0574074, -1.00741, 0.0611111, -0.0574074, 1.00741, -0.0574074, 0.0611111, -1.00741, -0.0574074, 0.0611111, -1.00741, 0.0611111, -0.0574074, 1.00741, 0.0611111, 0.0611111, 1.00741, -0.0574074)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mxrml"]
+points = PackedVector3Array(-0.05, -1, -0.05, -0.05, -1, 0.05, -0.05, 1, -0.05, 0.05, -1, -0.05, 0.05, -1, 0.05, -0.05, 1, 0.05, 0.05, 1, -0.05, 0.05, 1, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uipdv"]
+size = Vector3(2, 0.1, 0.1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_augd4"]
+points = PackedVector3Array(-1.00741, -0.0574074, -0.0574074, 1.00741, 0.0611111, 0.0611111, 1.00741, 0.0611111, -0.0574074, -1.00741, 0.0611111, 0.0611111, 1.00741, -0.0574074, 0.0611111, 1.00741, -0.0574074, -0.0574074, -1.00741, 0.0611111, -0.0574074, -1.00741, -0.0574074, 0.0611111)
+
+[node name="ObstacleDoors" type="Node3D"]
+script = ExtResource("1_68shm")
+
+[node name="DoorFrame" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = SubResource("BoxMesh_x582p")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_jmt1m")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("BoxMesh_x582p")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_mxrml")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_uipdv")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("ConvexPolygonShape3D_augd4")
+
+[node name="Door1" parent="." instance=ExtResource("1_x4ly8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46, 0, 0)
+
+[node name="Door2" parent="." instance=ExtResource("1_x4ly8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46, 0, 0)
+
+[node name="DoorJoint1" type="HingeJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.925718, 0, 0)
+node_a = NodePath("../DoorFrame")
+node_b = NodePath("../Door1")
+angular_limit/enable = true
+angular_limit/upper = 1.91986
+angular_limit/lower = -1.91986
+motor/target_velocity = 1.74533
+
+[node name="DoorJoint2" type="HingeJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.928247, 0, 0)
+node_a = NodePath("../DoorFrame")
+node_b = NodePath("../Door2")
+angular_limit/enable = true
+angular_limit/upper = 1.91986
+angular_limit/lower = -1.91986

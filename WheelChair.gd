@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends Node3D
 
 @export var active: bool : set = set_active, get = get_active
 
@@ -19,7 +19,7 @@ func _physics_process(delta):
     var euler = self.global_transform.basis.get_euler()
     if self.active and (absf(euler.x) > PI / 3 or absf(euler.z) > PI / 3):
         emit_signal("tilt")
-    
+
     var acceleration = 0.5
     var target_speed = 20
     

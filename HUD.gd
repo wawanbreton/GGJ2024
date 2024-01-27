@@ -17,7 +17,7 @@ func start_countdown():
 func get_score():
     return get_node("LabelTime").text
 
-func _process(delta):
+func _process(_delta):
     var elapsed = Time.get_ticks_msec() - self._time_start
     
     var minutes = int(elapsed / 60000)

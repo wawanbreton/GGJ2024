@@ -9,7 +9,7 @@ func _ready():
     get_node("CheckpointFinal").checked_changed.connect(Callable(self, "_on_checkpoint_checked_changed").bind(null))
 
 func _on_control_start_new_game():
-    var wheelchair = get_node("Wheelchair")
+    var wheelchair = self.get_node("Wheelchair") # This issues a warning but find_type won't work
     var lookup_node = null
     if wheelchair:
         lookup_node = wheelchair.get_node('Lookup')
@@ -44,7 +44,7 @@ func _on_checkpoint_checked_changed(checked, next_checkpoint):
             next_checkpoint.active = true
         else:
             self._on_game_ended(get_node("HUD").get_score())
-            
+
 func _on_wheelchair_tilt():
     self._on_game_ended(null)
 

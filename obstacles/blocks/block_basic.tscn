@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c780g1mqks8ix"]
+
+[ext_resource type="Script" path="res://obstacles/blocks/block_basic.gd" id="1_tuad1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_unynj"]
+size = Vector3(3, 3, 3)
+
+[node name="BlockBasic" type="StaticBody3D"]
+script = ExtResource("1_tuad1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_unynj")
+skeleton = NodePath("")
