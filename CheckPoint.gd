@@ -7,12 +7,12 @@ signal checked_changed(bool)
 @export var active: bool = false
 
 func get_checked():
-    return !get_node("MeshInstance3D").visible
+	return !get_node("MeshInstance3D").visible
 
 func set_checked(new_checked):
-    get_node("MeshInstance3D").visible = !new_checked
-    emit_signal("checked_changed", new_checked)
+	get_node("MeshInstance3D").visible = !new_checked
+	emit_signal("checked_changed", new_checked)
 
-func _on_body_entered(body):
-    if self.active:
-        self.checked = true
+func _on_body_entered(_body):
+	if self.active:
+		self.checked = true

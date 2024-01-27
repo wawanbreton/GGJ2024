@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv3adrwog07i7"]
+
+[ext_resource type="Script" path="res://levelblocks/test_wall.gd" id="1_shu1l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rvtdy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exosa"]
+
+[node name="TestWall" type="Node3D"]
+transform = Transform3D(2.8, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0, 0)
+script = ExtResource("1_shu1l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_rvtdy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_exosa")
