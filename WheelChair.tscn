@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbmi4w783qe8x"]
+[gd_scene load_steps=9 format=3 uid="uid://dbmi4w783qe8x"]
 
 [ext_resource type="PackedScene" uid="uid://b0trjlemwwco2" path="res://BigWheel.tscn" id="1_7n7ia"]
 [ext_resource type="Script" path="res://WheelChair.gd" id="1_fyvwc"]
@@ -6,7 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://c4ra4yuurauov" path="res://Frame.blend" id="2_xiye1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7rjj"]
-size = Vector3(0.7, 0.7, 0.7)
+size = Vector3(0.448987, 0.444067, 0.704504)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_81q81"]
+size = Vector3(0.448987, 0.466763, 0.117877)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kinbe"]
+size = Vector3(0.0555435, 0.070182, 0.387868)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xxn3"]
+size = Vector3(0.0555435, 0.070182, 0.387868)
 
 [node name="Frame" type="RigidBody3D"]
 collision_layer = 3
@@ -15,11 +24,24 @@ mass = 5.0
 can_sleep = false
 script = ExtResource("1_fyvwc")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Frame2" parent="." instance=ExtResource("2_xiye1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.439488, 0)
+
+[node name="CollisionShapeSeat" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.343382, 0.0797058)
 shape = SubResource("BoxShape3D_g7rjj")
 
-[node name="Frame2" parent="CollisionShape3D" instance=ExtResource("2_xiye1")]
+[node name="CollisionShapeBack" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.831259, -0.0632171)
+shape = SubResource("BoxShape3D_81q81")
+
+[node name="CollisionShapeArmRestLeft" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.274223, 0.711207, 0.162771)
+shape = SubResource("BoxShape3D_kinbe")
+
+[node name="CollisionShapeArmRestRight" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.274, 0.711, 0.163)
+shape = SubResource("BoxShape3D_0xxn3")
 
 [node name="RearRightWheel" parent="." instance=ExtResource("1_7n7ia")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.343704, 0.308874, -0.0948032)
@@ -54,7 +76,6 @@ collision_mask = 3
 transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
 node_a = NodePath("../..")
 node_b = NodePath("..")
-exclude_nodes_from_collision = false
 
 [node name="FrontRightWheel" parent="." instance=ExtResource("2_fp0qj")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.315, 0.109626, 0.575)
@@ -65,4 +86,3 @@ collision_mask = 3
 transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
 node_a = NodePath("../..")
 node_b = NodePath("..")
-exclude_nodes_from_collision = false
