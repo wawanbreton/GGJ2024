@@ -21,3 +21,10 @@ func set_color(col):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+
+func _on_crash_sound_area_body_entered(body):
+	$AudioStreamCrashes.play_random() # Replace with function body.
+
+
+

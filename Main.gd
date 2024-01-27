@@ -52,6 +52,7 @@ func _on_wheelchair_tilt():
 	self._on_game_ended(null)
 
 func _on_game_ended(score):
+	
 	get_node("Wheelchair").active = false
 	get_node("HUD").visible = false
 	get_node("Menu").set_score(score)
