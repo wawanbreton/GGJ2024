@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://u7bxhbhxodfn"]
 
 [ext_resource type="Script" path="res://obstacles/obstacle_pole_group.gd" id="1_mrh7v"]
-[ext_resource type="PackedScene" uid="uid://dbwll6vad7oj" path="res://obstacles/obstacle_pole.tscn" id="2_bjwvn"]
+[ext_resource type="PackedScene" uid="uid://dbwll6vad7oj" path="res://obstacles/obstacles/obstacle_pole.tscn" id="2_bjwvn"]
 
 [node name="ObstaclePollGroup" type="Node3D"]
 script = ExtResource("1_mrh7v")

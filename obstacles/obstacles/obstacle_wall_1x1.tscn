@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpqqwbxpjf4au"]
+[gd_scene load_steps=4 format=3 uid="uid://cpqqwbxpjf4au"]
+
+[ext_resource type="Script" path="res://obstacles/obstacles/obstacle_wall_1x1.gd" id="1_l8a55"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ku4m8"]
 size = Vector3(1, 1, 0.1)
@@ -7,6 +9,7 @@ size = Vector3(1, 1, 0.1)
 size = Vector3(1, 1, 0.1)
 
 [node name="ObstacleWall1x1" type="StaticBody3D"]
+script = ExtResource("1_l8a55")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ku4m8")

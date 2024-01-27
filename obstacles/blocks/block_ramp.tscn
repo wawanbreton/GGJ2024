@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://xn8nk31mw47"]
 
-[ext_resource type="Script" path="res://obstacles/block_ramp.gd" id="1_q8mli"]
+[ext_resource type="Script" path="res://obstacles/blocks/block_ramp.gd" id="1_q8mli"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_sylx4"]
 left_to_right = 1.0

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwf73tp1icmxs"]
+
+[ext_resource type="Script" path="res://obstacles/obstacles/obstacle_movable_box.gd" id="1_c5knd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1xa01"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4gdw0"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="ObstacleMovableBox" type="RigidBody3D" parent="."]
+script = ExtResource("1_c5knd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ObstacleMovableBox"]
+shape = SubResource("BoxShape3D_1xa01")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ObstacleMovableBox/CollisionShape3D"]
+mesh = SubResource("BoxMesh_4gdw0")
