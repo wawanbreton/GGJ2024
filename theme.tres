@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dkr5m65u81b32"]
+
+[ext_resource type="FontFile" uid="uid://dv3kswig0hafx" path="res://namecat/Namecat.otf" id="1_rr1x4"]
+
+[resource]
+default_font = ExtResource("1_rr1x4")
+default_font_size = 45
+Button/colors/font_color = Color(0.458824, 0.713726, 0.882353, 1)
+Button/colors/font_hover_color = Color(0.635294, 0.811765, 0.933333, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.2, 0.427451, 0.568627, 1)
+Button/constants/outline_size = 10
+Label/colors/font_color = Color(0.458824, 0.713726, 0.882353, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)

@@ -1,5 +1,15 @@
-extends Node3D
+extends RigidBody3D
 
+@export var active: bool : set = set_active
+
+signal start_game
+
+func _ready():
+    set_active(false)
+
+func set_active(new_active):
+    get_node("RearLeftWheel/Joint").set_flag(HingeJoint3D.FLAG_ENABLE_MOTOR, new_active)
+    get_node("RearRightWheel/Joint").set_flag(HingeJoint3D.FLAG_ENABLE_MOTOR, new_active)
 
 func _physics_process(delta):
     var acceleration = 0.5
