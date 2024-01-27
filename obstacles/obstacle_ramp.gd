@@ -6,4 +6,3 @@ extends StaticBody3D
 
 func _ready():
 	collision_shape_3d.scale.y = tan(deg_to_rad(ramp_angle))*collision_shape_3d.scale.z
-	
