@@ -2,11 +2,10 @@ extends Block
 
 #@export var ramp_angle: float = 15
 
-
+func _init():
+	heights = [0,NAN,height,NAN]
 
 func _ready():
-	print(height)
-	heights = [0,NAN,NAN,height]
 	mesh_instance.mesh.size.y = height*BLOCK_MAX_HEIGHT
 	mesh_instance.create_convex_collision(true, true)
 	
