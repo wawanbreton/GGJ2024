@@ -1,13 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8ub5qjh0pawk"]
+[gd_scene load_steps=2 format=3 uid="uid://b8ub5qjh0pawk"]
 
 [ext_resource type="Script" path="res://levelblocks/test_block_a.gd" id="1_euoaq"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_axnhj"]
-
-[node name="TestBlockA" type="StaticBody3D"]
+[node name="TestBlockA" type="Node3D"]
 script = ExtResource("1_euoaq")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_axnhj")
-
-[node name="VisualShape" type="CSGBox3D" parent="CollisionShape3D"]

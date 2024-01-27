@@ -1,8 +1,26 @@
-extends StaticBody3D
+extends Node3D
+
+const _WALL_SCN := preload("res://levelblocks/test_wall.tscn")
+
+var _sides = [
+	Vector3(1,0,0),
+	Vector3(0,0,1),
+	Vector3(-1,0,0),
+	Vector3(0,0,-1),
+]
+var _rotations = [
+	0,
+	TAU * 0.25,
+	TAU * 0.50,
+	TAU * 0.75,
+]
+
+var heights = [0,0,0,0]
 
 func _ready():
-	$CollisionShape3D/VisualShape.material_override = StandardMaterial3D.new()
-	$CollisionShape3D/VisualShape.material_override.albedo_color = Color(randf(), randf(), randf())
-
-func _process(delta):
-	pass
+	for i in len(heights):
+		if is_nan(heights[i]):
+			var wall = _WALL_SCN.instantiate()
+			wall.position += 1.5 * _sides[i]
+			wall.rotate_y(_rotations[i])
+			self.add_child(wall)
