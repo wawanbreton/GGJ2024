@@ -12,6 +12,7 @@ radius = 0.1
 [node name="Node3D" type="RigidBody3D"]
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_4qjwk")
+can_sleep = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_7tfpn")
