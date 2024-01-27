@@ -25,7 +25,7 @@ size = Vector3(0.0555435, 0.070182, 0.387868)
 [node name="Frame" type="RigidBody3D"]
 collision_layer = 3
 collision_mask = 3
-mass = 5.0
+mass = 3.0
 script = ExtResource("1_fyvwc")
 
 [node name="FrameMesh" parent="." instance=ExtResource("2_xiye1")]

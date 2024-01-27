@@ -9,6 +9,8 @@ func _ready():
 func _process(_delta):
 	if (visible && get_node("Button").visible && Input.get_action_strength("ui_accept") > 0) :
 		emit_signal('start_new_game')
+	if ( Input.get_action_strength("Reset") > 0 ) :
+		emit_signal('start_new_game')
 
 func _on_button_pressed():
 	emit_signal('start_new_game')
