@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://2tm4edtiy5h2"]
 
-[ext_resource type="Texture2D" uid="uid://c28x650erd1l8" path="res://floor.png" id="1_au7fg"]
+[ext_resource type="Texture2D" uid="uid://bm85jin5sh8sq" path="res://img/concrete_floor.png" id="1_sm1mw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vthuq"]
-albedo_texture = ExtResource("1_au7fg")
+albedo_texture = ExtResource("1_sm1mw")
 uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_o5v0s"]

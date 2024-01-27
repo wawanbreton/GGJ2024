@@ -32,6 +32,7 @@ const BLOCK_DIMENSIONS := Vector3(3.0, 3.0, 3.0)
 const NUM_CHECKPOINTS := 3
 
 var _blocks := {}   # Dictionary[Vector3, Node3D]
+var _markers := []
 
 # first is start, last is finish, in between is the _actual_ checkpoints
 const _INIT_CHECKPOINTS := [Vector3(0,0,0), Vector3(9,0,9)]
@@ -88,6 +89,9 @@ func _remove_all():
 		_blocks[gp].queue_free()
 		_blocks.erase(gp)
 	_blocks = {}
+	for m in _markers:
+		m.queue_free()
+	_markers = []
 
 func _make_maze():
 	var end_point = _checkpoints[-1]
@@ -117,6 +121,8 @@ func _make_maze():
 		for iy in range(DEPTH.x, DEPTH.y):
 			for ix in range(WIDTH.x, WIDTH.y):
 				var grid_pos = Vector3(ix, iz, iy)
+				if grid_pos.x == 0 and grid_pos.z == 0:
+					continue
 				if not grid_pos in visited_grid_pos:
 					self._add_block_at(randi_range(0, len(_SCENES)-1), grid_pos)
 
@@ -144,7 +150,7 @@ func _make_maze():
 
 	return path_to_end
 
-func _debug_mark_path(path_to_end):
+func _mark_path(path_to_end):
 	var fli = -1
 	for grid_pos in path_to_end:
 		fli += 1
@@ -152,9 +158,19 @@ func _debug_mark_path(path_to_end):
 		marker.red = (1.0 / len(path_to_end)) * fli
 		marker.position = grid_pos * BLOCK_DIMENSIONS
 		self.add_child(marker)
+		_markers.append(marker)
 
 func _rotate_array(arr):
 	return [ arr[1], arr[2], arr[3], arr[0] ]
+
+func reset():
+	randomize()
+	# TODO??: randomize start, finish
+	var path_to_end = []
+	while len(path_to_end) <= 0:
+		self._remove_all()
+		path_to_end = self._make_maze()
+	self._mark_path(path_to_end)
 
 func _ready():
 	for scn in _PRE_SCENES:
@@ -175,10 +191,4 @@ func _ready():
 			really_all_scenes.append([scn[0], next_heights, i])
 	_SCENES = really_all_scenes
 
-	randomize()
-	# TODO??: randomize start, finish
-	var path_to_end = []
-	while len(path_to_end) <= 0:
-		self._remove_all()
-		path_to_end = self._make_maze()
-	self._debug_mark_path(path_to_end)
+	reset()
