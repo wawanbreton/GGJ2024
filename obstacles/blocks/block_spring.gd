@@ -29,7 +29,6 @@ func _physics_process(delta):
 		
 
 func _on_timer_timeout():
-	print("time")
 	if block_moving:
 		spring_timer.wait_time = 1
 		block_moving = false
@@ -39,7 +38,6 @@ func _on_timer_timeout():
 	else:
 		spring_timer.wait_time = 4
 		block_moving = true
-		print(block_moving, spring_timer.wait_time)
 		
 	
 	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://s2rru0ksxts8"]
+[gd_scene load_steps=3 format=3 uid="uid://c1h8kkjhe57d7"]
 
 [ext_resource type="Script" path="res://obstacles/blocks/block_spring.gd" id="1_pcykc"]
 
