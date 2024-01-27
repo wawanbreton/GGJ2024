@@ -14,6 +14,7 @@ script = ExtResource("1_fyvwc")
 
 [node name="Frame" type="RigidBody3D" parent="."]
 mass = 5.0
+can_sleep = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Frame"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.570862, 0)
@@ -45,7 +46,7 @@ params/bias = 0.99
 motor/enable = true
 
 [node name="FrontLeftWheel" parent="." instance=ExtResource("2_fp0qj")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.365, 0.240389, 0.574987)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.315031, 0.240389, 0.574987)
 
 [node name="Joint" type="HingeJoint3D" parent="FrontLeftWheel"]
 transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
@@ -53,7 +54,7 @@ node_a = NodePath("../../Frame")
 node_b = NodePath("..")
 
 [node name="FrontRightWheel" parent="." instance=ExtResource("2_fp0qj")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.365158, 0.240729, 0.575389)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.315, 0.241, 0.575)
 
 [node name="Joint" type="HingeJoint3D" parent="FrontRightWheel"]
 transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
@@ -64,6 +65,6 @@ node_b = NodePath("..")
 transform = Transform3D(-1, -2.13163e-14, -8.74228e-08, -2.83784e-08, 0.945848, 0.324611, 8.26886e-08, 0.324611, -0.945848, 0, 1.73455, -2.12756)
 fov = 58.5
 script = ExtResource("2_g21cc")
-lerp_speed = 10.0
+lerp_speed = 5.0
 target = NodePath("../Frame/Lookup")
 offset = Vector3(0, 1, -2)

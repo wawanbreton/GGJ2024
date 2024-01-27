@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4ed6petbfp7w"]
+[gd_scene load_steps=7 format=3 uid="uid://b4ed6petbfp7w"]
 
 [ext_resource type="PackedScene" uid="uid://2tm4edtiy5h2" path="res://Floor.tscn" id="1_i0gtf"]
+[ext_resource type="Script" path="res://Main.gd" id="1_yh6gx"]
 [ext_resource type="PackedScene" uid="uid://dbmi4w783qe8x" path="res://WheelChair.tscn" id="2_01k1f"]
+[ext_resource type="PackedScene" uid="uid://c7ipf58q4301f" path="res://HUD.tscn" id="3_d0lgg"]
+[ext_resource type="PackedScene" uid="uid://b4r8dksu3kfe8" path="res://Menu.tscn" id="4_msian"]
 
 [sub_resource type="Environment" id="Environment_2sg5e"]
 background_mode = 1
 background_color = Color(0.740676, 0.861286, 1, 1)
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_yh6gx")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2sg5e")
@@ -18,4 +22,12 @@ transform = Transform3D(1, 0, 0, 0, 0.467482, 0.884002, 0, -0.884002, 0.467482, 
 [node name="Background" parent="." instance=ExtResource("1_i0gtf")]
 
 [node name="Wheelchair" parent="." instance=ExtResource("2_01k1f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.126262, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.132157, 0)
+
+[node name="HUD" parent="." instance=ExtResource("3_d0lgg")]
+visible = false
+
+[node name="Menu" parent="." instance=ExtResource("4_msian")]
+
+[connection signal="countdown_over" from="HUD" to="." method="_on_hud_countdown_over"]
+[connection signal="start_new_game" from="Menu" to="." method="_on_control_start_new_game"]
