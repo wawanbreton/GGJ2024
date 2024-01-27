@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://c780g1mqks8ix"]
 
 [ext_resource type="Script" path="res://obstacles/blocks/block_basic.gd" id="1_tuad1"]
-[ext_resource type="Texture2D" uid="uid://c28x650erd1l8" path="res://floor.png" id="2_lfpld"]
+[ext_resource type="Texture2D" uid="uid://cnfva1skemsdh" path="res://img/metalish_thing.png" id="2_6qu6t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7ibm"]
-albedo_texture = ExtResource("2_lfpld")
+albedo_texture = ExtResource("2_6qu6t")
 
 [sub_resource type="BoxMesh" id="BoxMesh_unynj"]
 material = SubResource("StandardMaterial3D_s7ibm")
