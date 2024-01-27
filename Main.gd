@@ -22,6 +22,7 @@ func _on_control_start_new_game():
     
     wheelchair = WheelChair.instantiate()
     wheelchair.name = "Wheelchair"
+    wheelchair.tilt.connect(_on_wheelchair_tilt)
     wheelchair.add_child(lookup_node)
     add_child(wheelchair)
     
@@ -42,7 +43,13 @@ func _on_checkpoint_checked_changed(checked, next_checkpoint):
         if next_checkpoint:
             next_checkpoint.active = true
         else:
-            get_node("Wheelchair").active = false
-            get_node("HUD").visible = false
-            get_node("Menu").set_score(get_node("HUD").get_score())
-            get_node("Menu").visible = true
+            self._on_game_ended(get_node("HUD").get_score())
+            
+func _on_wheelchair_tilt():
+    self._on_game_ended(null)
+
+func _on_game_ended(score):
+    get_node("Wheelchair").active = false
+    get_node("HUD").visible = false
+    get_node("Menu").set_score(score)
+    get_node("Menu").visible = true
