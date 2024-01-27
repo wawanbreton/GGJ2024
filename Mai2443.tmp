@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4ed6petbfp7w"]
+
+[ext_resource type="PackedScene" uid="uid://2tm4edtiy5h2" path="res://Floor.tscn" id="1_i0gtf"]
+[ext_resource type="PackedScene" uid="uid://dbmi4w783qe8x" path="res://WheelChair.tscn" id="2_01k1f"]
+[ext_resource type="PackedScene" uid="uid://d0vue61xyekh4" path="res://obstacles/obstacles/obstacle_double_doors.tscn" id="3_63nrr"]
+[ext_resource type="PackedScene" uid="uid://comeil0gtyixt" path="res://obstacles/obstacle_swinging_pendulum.tscn" id="4_vsjb2"]
+
+[sub_resource type="Environment" id="Environment_2sg5e"]
+background_mode = 1
+background_color = Color(0.740676, 0.861286, 1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2sg5e")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.467482, 0.884002, 0, -0.884002, 0.467482, 0, 5.05088, 3.16586)
+
+[node name="Background" parent="." instance=ExtResource("1_i0gtf")]
+
+[node name="Wheelchair" parent="." instance=ExtResource("2_01k1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.126262, 0)
+
+[node name="ObstacleDoors" parent="." instance=ExtResource("3_63nrr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04936, 4.36178)
+
+[node name="ObstacleSwingingPendulum" parent="." instance=ExtResource("4_vsjb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49254, 1.89937)

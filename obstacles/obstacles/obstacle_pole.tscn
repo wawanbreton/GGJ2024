@@ -12,7 +12,7 @@ bottom_radius = 0.1
 [node name="ObstaclePole" type="Node3D"]
 script = ExtResource("1_hu4r8")
 
-[node name="ObstaclePoll" type="StaticBody3D" parent="."]
+[node name="ObstaclePoll" type="RigidBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ObstaclePoll"]
 shape = SubResource("CylinderShape3D_i4v65")
