@@ -59,6 +59,7 @@ collision_mask = 3
 transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
 node_a = NodePath("../../Frame")
 node_b = NodePath("..")
+exclude_nodes_from_collision = false
 
 [node name="FrontRightWheel" parent="." instance=ExtResource("2_fp0qj")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.365158, 0.240729, 0.575389)
@@ -70,10 +71,4 @@ transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-0
 node_a = NodePath("../../Frame")
 node_b = NodePath("..")
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(-1, -2.13163e-14, -8.74228e-08, -2.83784e-08, 0.945848, 0.324611, 8.26886e-08, 0.324611, -0.945848, 0, 1.73455, -2.12756)
-fov = 58.5
-script = ExtResource("2_g21cc")
-lerp_speed = 10.0
-target = NodePath("../Frame/Lookup")
-offset = Vector3(0, 1, -2)
+exclude_nodes_from_collision = false
