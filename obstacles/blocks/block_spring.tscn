@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://s2rru0ksxts8"]
+
+[ext_resource type="Script" path="res://obstacles/blocks/block_spring.gd" id="1_pcykc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_eb3s6"]
+size = Vector3(3, 3, 3)
+
+[node name="BlockSpring" type="StaticBody3D"]
+script = ExtResource("1_pcykc")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_eb3s6")
+skeleton = NodePath("")

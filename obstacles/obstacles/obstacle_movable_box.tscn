@@ -6,10 +6,10 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_4gdw0"]
 
-[node name="Node3D" type="Node3D"]
+[node name="ObstacleMovableBox" type="Node3D"]
+script = ExtResource("1_c5knd")
 
 [node name="ObstacleMovableBox" type="RigidBody3D" parent="."]
-script = ExtResource("1_c5knd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ObstacleMovableBox"]
 shape = SubResource("BoxShape3D_1xa01")
