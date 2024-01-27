@@ -54,6 +54,7 @@ collision_mask = 3
 transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
 node_a = NodePath("../..")
 node_b = NodePath("..")
+exclude_nodes_from_collision = false
 
 [node name="FrontRightWheel" parent="." instance=ExtResource("2_fp0qj")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.315, 0.109626, 0.575)
@@ -64,3 +65,4 @@ collision_mask = 3
 transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
 node_a = NodePath("../..")
 node_b = NodePath("..")
+exclude_nodes_from_collision = false
