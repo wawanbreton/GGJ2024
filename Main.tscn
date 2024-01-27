@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://2tm4edtiy5h2" path="res://Floor.tscn" id="1_i0gtf"]
 [ext_resource type="Script" path="res://Main.gd" id="1_yh6gx"]
-[ext_resource type="PackedScene" path="res://HUD.tscn" id="3_d0lgg"]
+[ext_resource type="PackedScene" uid="uid://c7ipf58q4301f" path="res://HUD.tscn" id="3_d0lgg"]
 [ext_resource type="PackedScene" uid="uid://drqpkmnwn3qgp" path="res://level.tscn" id="3_to28k"]
 [ext_resource type="PackedScene" uid="uid://b4r8dksu3kfe8" path="res://Menu.tscn" id="4_msian"]
 [ext_resource type="Script" path="res://Camera.gd" id="6_3ggy4"]
-[ext_resource type="PackedScene" path="res://CheckPoint.tscn" id="6_vbe7t"]
+[ext_resource type="PackedScene" uid="uid://cof6t2vs4swn6" path="res://CheckPoint.tscn" id="6_vbe7t"]
 [ext_resource type="PackedScene" uid="uid://bvqrpit1ed7ph" path="res://Audio/MusicPlayer.tscn" id="7_yjk1q"]
 
 [sub_resource type="Environment" id="Environment_2sg5e"]
