@@ -1,51 +1,23 @@
-[gd_scene load_steps=19 format=3 uid="uid://bv3adrwog07i7"]
+[gd_scene load_steps=7 format=3 uid="uid://bv3adrwog07i7"]
 
 [ext_resource type="Script" path="res://levelblocks/test_wall.gd" id="1_shu1l"]
 [ext_resource type="Texture2D" uid="uid://unsckvu58mh5" path="res://img/vertical-gray-wall-small.png" id="2_ds7db"]
 [ext_resource type="Texture2D" uid="uid://cxl2i1hbeddj" path="res://img/vertical-gray-wall-small-7.png" id="3_lfhqd"]
-[ext_resource type="Texture2D" uid="uid://co7c2hi4m34u0" path="res://img/vertical-gray-wall-small-3.png" id="4_ejalo"]
-[ext_resource type="Texture2D" uid="uid://deui5h8lxnbdx" path="res://img/vertical-gray-wall-small-2.png" id="5_dagaj"]
-[ext_resource type="Texture2D" uid="uid://bvc1b7kt4f061" path="res://img/vertical-gray-wall-small-4.png" id="6_3ch4q"]
 [ext_resource type="Texture2D" uid="uid://cmt0pksvnrxc2" path="res://img/vertical-gray-wall-small-5.png" id="7_sopi4"]
-[ext_resource type="Texture2D" uid="uid://bpecsdqudo6rs" path="res://img/vertical-gray-wall-small-6.png" id="8_tu5h0"]
-[ext_resource type="PackedScene" uid="uid://b87o388g77m5b" path="res://Audio/AudioStreamAcceleration.tscn" id="9_pscaq"]
-[ext_resource type="AudioStream" uid="uid://co34e7umpdkl1" path="res://Audio/crash_sounds/crash1.wav" id="10_5p6lm"]
-[ext_resource type="AudioStream" uid="uid://dmmdhok1i1i1u" path="res://Audio/crash_sounds/crash2.wav" id="11_o1ipk"]
-[ext_resource type="AudioStream" uid="uid://dlpvwhvofhboy" path="res://Audio/crash_sounds/crash3.wav" id="12_r186m"]
-[ext_resource type="AudioStream" uid="uid://chmjwddliyvfn" path="res://Audio/crash_sounds/crash4.wav" id="13_yb2l1"]
-[ext_resource type="AudioStream" uid="uid://cdrephpyc5tm8" path="res://Audio/crash_sounds/crash5.wav" id="14_abe7a"]
-[ext_resource type="AudioStream" uid="uid://dpo41k8j7tf2d" path="res://Audio/crash_sounds/crash6.wav" id="15_jq2xy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rvtdy"]
-size = Vector3(1, 1, 1.3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exosa"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4foc8"]
-size = Vector3(1, 1, 2)
 
 [node name="TestWall" type="Node3D"]
 transform = Transform3D(2.8, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0, 0)
 script = ExtResource("1_shu1l")
-wallImages = Array[Resource]([ExtResource("2_ds7db"), ExtResource("2_ds7db"), ExtResource("2_ds7db"), ExtResource("3_lfhqd"), ExtResource("3_lfhqd"), ExtResource("4_ejalo"), ExtResource("5_dagaj"), ExtResource("6_3ch4q"), ExtResource("7_sopi4"), ExtResource("8_tu5h0")])
+wallImages = Array[Resource]([ExtResource("2_ds7db"), ExtResource("2_ds7db"), ExtResource("2_ds7db"), ExtResource("3_lfhqd"), ExtResource("3_lfhqd"), ExtResource("7_sopi4")])
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-collision_layer = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_rvtdy")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
 material_override = SubResource("StandardMaterial3D_exosa")
-
-[node name="CrashSoundArea" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CrashSoundArea"]
-shape = SubResource("BoxShape3D_4foc8")
-
-[node name="AudioStreamCrashes" parent="." instance=ExtResource("9_pscaq")]
-streams = Array[AudioStream]([ExtResource("10_5p6lm"), ExtResource("11_o1ipk"), ExtResource("12_r186m"), ExtResource("13_yb2l1"), ExtResource("14_abe7a"), ExtResource("15_jq2xy")])
-
-[connection signal="body_entered" from="CrashSoundArea" to="." method="_on_crash_sound_area_body_entered"]
