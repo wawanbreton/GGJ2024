@@ -1,20 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://nr417r6mwd1a"]
+[gd_scene load_steps=4 format=3 uid="uid://nr417r6mwd1a"]
+
+[ext_resource type="PackedScene" uid="uid://ddu3u5ruxqlsn" path="res://SmallWheel.blend" id="1_frvqq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4qjwk"]
 friction = 0.1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7tfpn"]
-height = 0.1
+height = 0.02
+radius = 0.1
 
 [node name="Node3D" type="RigidBody3D"]
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_4qjwk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_7tfpn")
 
-[node name="RLWheel" type="CSGCylinder3D" parent="CollisionShape3D"]
-use_collision = true
-height = 0.1
-sides = 32
+[node name="SmallWheel" parent="." instance=ExtResource("1_frvqq")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)

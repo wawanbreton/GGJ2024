@@ -1,14 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0trjlemwwco2"]
+[gd_scene load_steps=3 format=3 uid="uid://b0trjlemwwco2"]
+
+[ext_resource type="PackedScene" uid="uid://d1per0w1iia88" path="res://BigWheel.blend" id="1_3dxib"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ne6iq"]
-height = 0.1
+height = 0.08
+radius = 0.3
 
 [node name="Node3D" type="RigidBody3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_ne6iq")
 
-[node name="RLWheel" type="CSGCylinder3D" parent="CollisionShape3D"]
-use_collision = true
-height = 0.1
-sides = 32
+[node name="BigWheel" parent="." instance=ExtResource("1_3dxib")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)

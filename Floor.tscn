@@ -1,16 +1,24 @@
-[gd_scene format=3 uid="uid://2tm4edtiy5h2"]
+[gd_scene load_steps=5 format=3 uid="uid://2tm4edtiy5h2"]
+
+[ext_resource type="Texture2D" uid="uid://c28x650erd1l8" path="res://floor.png" id="1_au7fg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vthuq"]
+albedo_texture = ExtResource("1_au7fg")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o5v0s"]
+material = SubResource("StandardMaterial3D_vthuq")
+size = Vector2(100, 100)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7dnoj"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-use_collision = true
-size = Vector3(100, 1, 100)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_o5v0s")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_7dnoj")
