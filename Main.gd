@@ -9,7 +9,7 @@ func _ready():
 	get_node("CheckpointFinal").checked_changed.connect(Callable(self, "_on_checkpoint_checked_changed").bind(null))
 
 func _on_control_start_new_game():
-	var wheelchair = get_node("Wheelchair")
+	var wheelchair = self.find_child("Wheelchair")
 	var lookup_node = null
 	if wheelchair:
 		lookup_node = wheelchair.get_node('Lookup')
