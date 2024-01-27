@@ -1,6 +1,5 @@
 extends Node3D
 
-const _TEST_A_SCN = preload("res://levelblocks/test_block_a.tscn")
 const _TEST_B_SCN = preload("res://levelblocks/test_block_b.tscn")  # use as marker
 
 const _PRE_SCENES := [
@@ -10,6 +9,7 @@ const _PRE_SCENES := [
 	[preload("res://obstacles/blocks/block_basic.tscn"), []],
 	[preload("res://obstacles/blocks/block_bridge.tscn"), []],
 	[preload("res://obstacles/blocks/block_ramp.tscn"), []],
+	[preload("res://obstacles/blocks/block_spring.tscn"), []],
 ]
 var _SCENES = []
 var _SIDES = [
@@ -60,6 +60,13 @@ func _instance_scene(i):
 	scn.rotate_y(_SCENES[i][2] * (TAU * -0.25))
 	return scn
 
+func _add_block_at(i, at_grid_pos):
+	var level_block = self._instance_scene(i)
+	level_block.position = at_grid_pos * BLOCK_DIMENSIONS
+	_blocks[at_grid_pos] = level_block
+	self.add_child(level_block)
+	return level_block
+
 func _set_any_correct_block(last_grid_pos, height, at_grid_pos):
 	var rot = 0  # TODO: take into account rotations
 	var pick_list = []
@@ -73,10 +80,11 @@ func _set_any_correct_block(last_grid_pos, height, at_grid_pos):
 	if len(pick_list) == 0:
 		pick_list = [0]
 	pick_list.shuffle()
-	var level_block = self._instance_scene(pick_list.pop_front())
-	level_block.position = at_grid_pos * BLOCK_DIMENSIONS
-	_blocks[at_grid_pos] = level_block
-	self.add_child(level_block)
+	#var level_block = self._instance_scene(pick_list.pop_front())
+	#level_block.position = at_grid_pos * BLOCK_DIMENSIONS
+	#_blocks[at_grid_pos] = level_block
+	#self.add_child(level_block)
+	var level_block = self._add_block_at(pick_list.pop_front(), at_grid_pos)
 	return level_block.heights if "heights" in level_block else [0,0,0,0]
 
 func _remove_all():
@@ -93,6 +101,7 @@ func _make_maze():
 	var next_block_list = [ [_checkpoints[0], _checkpoints[0], 0] ]    # grid-pos, prev-grid-pos, height
 	# TODO?: 'solve' for first direction (will go mostly alright now)
 
+	# Random depth-first-search to make paths (and at least one to the end).
 	while len(next_block_list) > 0:
 		next_block_list.shuffle()  # a bit slow bit it should be OK
 		var current_block = next_block_list.pop_front()
@@ -108,6 +117,15 @@ func _make_maze():
 			if self._within_grid_bounds(next_grid_pos) and not is_nan(heights[j]):
 				next_block_list.append( [next_grid_pos, current_block[0], heights[j]] )
 
+	# Fill any remaining space with random scenes.
+	for iz in range(HEIGHT.x, HEIGHT.y):
+		for iy in range(DEPTH.x, DEPTH.y):
+			for ix in range(WIDTH.x, WIDTH.y):
+				var grid_pos = Vector3(ix, iz, iy)
+				if not grid_pos in visited_grid_pos:
+					self._add_block_at(randi_range(0, len(_SCENES)-1), grid_pos)
+
+	# Backtrace to the beginning to get the(/one possible) path.
 	var path_to_end = []
 	var rev_path_grid_pos = end_point
 	while rev_path_grid_pos in visited_grid_pos:
