@@ -1,6 +1,5 @@
 extends Node3D
 
-const _TEST_A_SCN = preload("res://levelblocks/test_block_a.tscn")
 const _TEST_B_SCN = preload("res://levelblocks/test_block_b.tscn")  # use as marker
 
 const _PRE_SCENES := [

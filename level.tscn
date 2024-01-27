@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://level.gd" id="1_ouw8i"]
 [ext_resource type="Script" path="res://debugcam.gd" id="2_y866g"]
 
-[sub_resource type="Environment" id="Environment_837nc"]
+[sub_resource type="Environment" id="Environment_o2e5d"]
 background_mode = 1
 background_color = Color(0.740676, 0.861286, 1, 1)
 
@@ -14,7 +14,7 @@ script = ExtResource("1_ouw8i")
 script = ExtResource("2_y866g")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_837nc")
+environment = SubResource("Environment_o2e5d")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.467482, 0.884002, 0, -0.884002, 0.467482, 0, 5.05088, 3.16586)
