@@ -3,26 +3,15 @@ extends Node3D
 const _TEST_A_SCN = preload("res://levelblocks/test_block_a.tscn")
 const _TEST_B_SCN = preload("res://levelblocks/test_block_b.tscn")  # use as marker
 
-var _SCENES := [
-	[_TEST_A_SCN, [0,0,0,0]],
-	[_TEST_A_SCN, [0,0,0,NAN]],
-	[_TEST_A_SCN, [0,NAN,0,NAN]],
-	[_TEST_A_SCN, [0,0,NAN,NAN]],
-	[_TEST_A_SCN, [NAN,NAN,NAN,0]],
-	[_TEST_A_SCN, [NAN,0,NAN,0]],
-	[_TEST_A_SCN, [NAN,NAN,0,0]],
+const _PRE_SCENES := [
+	[preload("res://levelblocks/corner_wall.tscn"), []],
+	[preload("res://levelblocks/double_wall.tscn"), []],
+	[preload("res://levelblocks/single_wall.tscn"), []],
 	[preload("res://obstacles/blocks/block_basic.tscn"), []],
 	[preload("res://obstacles/blocks/block_bridge.tscn"), []],
 	[preload("res://obstacles/blocks/block_ramp.tscn"), []],
-
-	#[preload("res://levelblocks/test_block_b.tscn"), [0,0,0,0]],
-
-	#preload("res://obstacles/obstacle_movable_box.tscn"),
-	#preload("res://obstacles/obstacle_poll.tscn"),
-	##preload("res://obstacles/obstacle_poll_group.tscn"),
-	#preload("res://obstacles/obstacle_ramp.tscn"),
-	#preload("res://obstacles/obstacle_wall_1x1.tscn"),
 ]
+var _SCENES = []
 var _SIDES = [
 	Vector3(0,0,1),  # a
 	Vector3(1,0,0),  # b
@@ -64,6 +53,11 @@ func _instance_scene(i):
 	var scn = _SCENES[i][0].instantiate()
 	if  "heights" in scn:
 		scn.heights = _SCENES[i][1]
+	if scn.has_method("block_init"):
+		scn.block_init()
+	if  "heights" in scn:
+		scn.heights = _SCENES[i][1]
+	scn.rotate_y(_SCENES[i][2] * (TAU * -0.25))
 	return scn
 
 func _set_any_correct_block(last_grid_pos, height, at_grid_pos):
@@ -135,16 +129,27 @@ func _debug_mark_path(path_to_end):
 		marker.position = grid_pos * BLOCK_DIMENSIONS
 		self.add_child(marker)
 
+func _rotate_array(arr):
+	return [ arr[1], arr[2], arr[3], arr[0] ]
+
 func _ready():
-	for scn in _SCENES:
+	for scn in _PRE_SCENES:
+		var hts = []
 		if len(scn[1]) <= 0:
 			var inst = scn[0].instantiate()
-			scn[1] = inst.heights
-
-			print(inst.name)
-			print(scn[1])
-
+			hts = inst.heights
 			inst.queue_free()
+		else:
+			hts = scn[1]
+		_SCENES.append([scn[0],hts,0])
+	var really_all_scenes = []
+	for scn in _SCENES:
+		really_all_scenes.append(scn)
+		var next_heights = scn[1]
+		for i in range(1, 4):  # already added the 0th one, so starting from '1'
+			next_heights = self._rotate_array(next_heights)
+			really_all_scenes.append([scn[0], next_heights, i]) #i * (TAU * 0.25)])
+	_SCENES = really_all_scenes
 
 	randomize()
 	## TODO: randomize start, finish
