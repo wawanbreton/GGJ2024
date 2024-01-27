@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://lrw8ic7yy1wr"]
+[gd_scene load_steps=5 format=3 uid="uid://lrw8ic7yy1wr"]
 
 [ext_resource type="Script" path="res://obstacles/blocks/block_bridge.gd" id="1_ej8wq"]
+[ext_resource type="Texture2D" uid="uid://c28x650erd1l8" path="res://floor.png" id="2_taeec"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fw4yf"]
+albedo_texture = ExtResource("2_taeec")
 
 [sub_resource type="BoxMesh" id="BoxMesh_unynj"]
+material = SubResource("StandardMaterial3D_fw4yf")
 size = Vector3(1.5, 1, 3)
 
 [node name="BlockBridge" type="StaticBody3D"]

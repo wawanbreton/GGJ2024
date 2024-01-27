@@ -1,13 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv3adrwog07i7"]
+[gd_scene load_steps=7 format=3 uid="uid://bv3adrwog07i7"]
 
 [ext_resource type="Script" path="res://levelblocks/test_wall.gd" id="1_shu1l"]
 [ext_resource type="Texture2D" uid="uid://unsckvu58mh5" path="res://img/vertical-gray-wall-small.png" id="2_ds7db"]
 [ext_resource type="Texture2D" uid="uid://cxl2i1hbeddj" path="res://img/vertical-gray-wall-small-7.png" id="3_lfhqd"]
-[ext_resource type="Texture2D" uid="uid://co7c2hi4m34u0" path="res://img/vertical-gray-wall-small-3.png" id="4_ejalo"]
-[ext_resource type="Texture2D" uid="uid://deui5h8lxnbdx" path="res://img/vertical-gray-wall-small-2.png" id="5_dagaj"]
-[ext_resource type="Texture2D" uid="uid://bvc1b7kt4f061" path="res://img/vertical-gray-wall-small-4.png" id="6_3ch4q"]
 [ext_resource type="Texture2D" uid="uid://cmt0pksvnrxc2" path="res://img/vertical-gray-wall-small-5.png" id="7_sopi4"]
-[ext_resource type="Texture2D" uid="uid://bpecsdqudo6rs" path="res://img/vertical-gray-wall-small-6.png" id="8_tu5h0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rvtdy"]
 
@@ -16,7 +12,7 @@
 [node name="TestWall" type="Node3D"]
 transform = Transform3D(2.8, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0, 0)
 script = ExtResource("1_shu1l")
-wallImages = Array[Resource]([ExtResource("2_ds7db"), ExtResource("2_ds7db"), ExtResource("2_ds7db"), ExtResource("3_lfhqd"), ExtResource("3_lfhqd"), ExtResource("4_ejalo"), ExtResource("5_dagaj"), ExtResource("6_3ch4q"), ExtResource("7_sopi4"), ExtResource("8_tu5h0")])
+wallImages = Array[Resource]([ExtResource("2_ds7db"), ExtResource("2_ds7db"), ExtResource("2_ds7db"), ExtResource("3_lfhqd"), ExtResource("3_lfhqd"), ExtResource("7_sopi4")])
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
