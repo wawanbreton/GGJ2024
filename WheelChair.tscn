@@ -36,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.40334, 0.1633
 shape = SubResource("BoxShape3D_g7rjj")
 
 [node name="CollisionShapeBelt" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.924832, 0.238797)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 1.01788, 0.238797)
 shape = SubResource("BoxShape3D_v5mx5")
 
 [node name="CollisionShapeBack" type="CollisionShape3D" parent="."]
@@ -99,3 +99,5 @@ node_b = NodePath("..")
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -0.00180791, 0.101761)
 
 [node name="AudioStreamAcceleration" parent="." instance=ExtResource("6_1kbkq")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
