@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://85keug0b04ab"]
+
+[ext_resource type="Script" path="res://levelblocks/double_wall.gd" id="1_3lsgv"]
+[ext_resource type="PackedScene" uid="uid://bv3adrwog07i7" path="res://levelblocks/test_wall.tscn" id="1_geofc"]
+
+[node name="DoubleWall" type="Node3D"]
+script = ExtResource("1_3lsgv")
+
+[node name="TestWall" parent="." instance=ExtResource("1_geofc")]
+transform = Transform3D(2.8, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0, 1.5)
+
+[node name="TestWall2" parent="." instance=ExtResource("1_geofc")]
+transform = Transform3D(2.8, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0, -1.5)
