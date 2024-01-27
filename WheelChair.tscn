@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://nr417r6mwd1a" path="res://SmallWheel.tscn" id="2_fp0qj"]
 [ext_resource type="PackedScene" uid="uid://c4ra4yuurauov" path="res://Frame.blend" id="2_xiye1"]
 [ext_resource type="PackedScene" uid="uid://chpc3abcqg3x5" path="res://RagDoll.tscn" id="5_4d63m"]
-[ext_resource type="PackedScene" uid="uid://b87o388g77m5b" path="res://Audio/AudioStreamAcceleration.tscn" id="6_1kbkq"]
+[ext_resource type="PackedScene" path="res://Audio/AudioStreamAcceleration.tscn" id="6_1kbkq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7rjj"]
 size = Vector3(0.448987, 0.324152, 0.537311)
@@ -36,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.40334, 0.1633
 shape = SubResource("BoxShape3D_g7rjj")
 
 [node name="CollisionShapeBelt" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 1.01788, 0.238797)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.832364, 0.206937)
 shape = SubResource("BoxShape3D_v5mx5")
 
 [node name="CollisionShapeBack" type="CollisionShape3D" parent="."]
@@ -52,7 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.274, 0.711, 0.163)
 shape = SubResource("BoxShape3D_0xxn3")
 
 [node name="RearRightWheel" parent="." instance=ExtResource("1_7n7ia")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.343704, 0.440248, -0.0948032)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.343704, 0.305075, -0.0948032)
 collision_layer = 3
 collision_mask = 3
 
@@ -64,7 +64,7 @@ params/bias = 0.99
 motor/enable = true
 
 [node name="RearLeftWheel" parent="." instance=ExtResource("1_7n7ia")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.344, 0.44, -0.094)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.344, 0.304827, -0.094)
 collision_layer = 3
 collision_mask = 3
 
@@ -76,7 +76,7 @@ params/bias = 0.99
 motor/enable = true
 
 [node name="FrontLeftWheel" parent="." instance=ExtResource("2_fp0qj")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.365, 0.240389, 0.574987)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.314671, 0.105216, 0.574987)
 collision_layer = 3
 collision_mask = 3
 
@@ -86,7 +86,7 @@ node_a = NodePath("../..")
 node_b = NodePath("..")
 
 [node name="FrontRightWheel" parent="." instance=ExtResource("2_fp0qj")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.365158, 0.240729, 0.575389)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.315, 0.106, 0.575)
 collision_layer = 3
 collision_mask = 3
 
@@ -95,7 +95,7 @@ transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-0
 node_a = NodePath("../..")
 node_b = NodePath("..")
 
-[node name="240127 - RagDoll GGJ2024 - armature - linked" parent="." instance=ExtResource("5_4d63m")]
+[node name="Ragdoll" parent="." instance=ExtResource("5_4d63m")]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -0.00180791, 0.101761)
 
 [node name="AudioStreamAcceleration" parent="." instance=ExtResource("6_1kbkq")]
