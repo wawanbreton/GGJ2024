@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdkpb2j44ignd"]
+
+[ext_resource type="Script" path="res://levelblocks/test_block_b.gd" id="1_tgopi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g07kp"]
+
+[node name="TestBlockB" type="StaticBody3D"]
+script = ExtResource("1_tgopi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_g07kp")
+
+[node name="VisualShape" type="CSGSphere3D" parent="CollisionShape3D"]

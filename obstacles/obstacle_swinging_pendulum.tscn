@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://comeil0gtyixt"]
+
+[node name="ObstacleSwingingPendulum" type="Node3D"]

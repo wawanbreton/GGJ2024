@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8ub5qjh0pawk"]
+
+[ext_resource type="Script" path="res://levelblocks/test_block_a.gd" id="1_euoaq"]
+
+[node name="TestBlockA" type="Node3D"]
+script = ExtResource("1_euoaq")
