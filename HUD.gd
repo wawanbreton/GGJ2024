@@ -13,6 +13,9 @@ func start_countdown():
     self._update_countdown()
     
     get_node("TimerCountdown").start()
+    
+func get_score():
+    return get_node("LabelTime").text
 
 func _process(delta):
     var elapsed = Time.get_ticks_msec() - self._time_start

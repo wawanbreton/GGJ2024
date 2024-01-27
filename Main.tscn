@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4ed6petbfp7w"]
+[gd_scene load_steps=8 format=3 uid="uid://b4ed6petbfp7w"]
 
 [ext_resource type="PackedScene" uid="uid://2tm4edtiy5h2" path="res://Floor.tscn" id="1_i0gtf"]
 [ext_resource type="Script" path="res://Main.gd" id="1_yh6gx"]
 [ext_resource type="PackedScene" uid="uid://dbmi4w783qe8x" path="res://WheelChair.tscn" id="2_01k1f"]
 [ext_resource type="PackedScene" uid="uid://c7ipf58q4301f" path="res://HUD.tscn" id="3_d0lgg"]
 [ext_resource type="PackedScene" uid="uid://b4r8dksu3kfe8" path="res://Menu.tscn" id="4_msian"]
+[ext_resource type="PackedScene" uid="uid://cof6t2vs4swn6" path="res://CheckPoint.tscn" id="6_vbe7t"]
 
 [sub_resource type="Environment" id="Environment_2sg5e"]
 background_mode = 1
@@ -22,12 +23,20 @@ transform = Transform3D(1, 0, 0, 0, 0.467482, 0.884002, 0, -0.884002, 0.467482, 
 [node name="Background" parent="." instance=ExtResource("1_i0gtf")]
 
 [node name="Wheelchair" parent="." instance=ExtResource("2_01k1f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.132157, 0)
 
 [node name="HUD" parent="." instance=ExtResource("3_d0lgg")]
 visible = false
 
 [node name="Menu" parent="." instance=ExtResource("4_msian")]
+
+[node name="Checkpoint1" parent="." instance=ExtResource("6_vbe7t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01968, 15.9902)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("6_vbe7t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2817, 1.01968, 15.9902)
+
+[node name="CheckpointFinal" parent="." instance=ExtResource("6_vbe7t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1044, 1.02198, 30.4044)
 
 [connection signal="countdown_over" from="HUD" to="." method="_on_hud_countdown_over"]
 [connection signal="start_new_game" from="Menu" to="." method="_on_control_start_new_game"]
