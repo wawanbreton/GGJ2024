@@ -17,12 +17,15 @@ var _rotations = [
 
 var heights = [0,0,0,0]
 
-func _ready():
-	var rand_col = Color(randf(), randf(), randf())
+func block_init():
+	#var rand_col = Color(randf(), randf(), randf())
 	for i in len(heights):
 		if is_nan(heights[i]):
 			var wall = _WALL_SCN.instantiate()
-			wall.set_color(rand_col)
+			wall.set_color(Color(0,0,i/3.0))  #wall.set_color(rand_col)
 			wall.rotate_y(_rotations[i])
 			wall.position += 1.35 * _sides[i]  #  should be nearly 1.5 x
 			self.add_child(wall)
+
+func _ready():
+	pass

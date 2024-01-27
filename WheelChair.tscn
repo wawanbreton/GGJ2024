@@ -1,31 +1,54 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbmi4w783qe8x"]
+[gd_scene load_steps=11 format=3 uid="uid://dbmi4w783qe8x"]
 
 [ext_resource type="PackedScene" uid="uid://b0trjlemwwco2" path="res://BigWheel.tscn" id="1_7n7ia"]
 [ext_resource type="Script" path="res://WheelChair.gd" id="1_fyvwc"]
 [ext_resource type="PackedScene" uid="uid://nr417r6mwd1a" path="res://SmallWheel.tscn" id="2_fp0qj"]
-[ext_resource type="Script" path="res://Camera.gd" id="2_g21cc"]
 [ext_resource type="PackedScene" uid="uid://c4ra4yuurauov" path="res://Frame.blend" id="2_xiye1"]
-[ext_resource type="PackedScene" uid="uid://b87o388g77m5b" path="res://Audio/AudioStreamAcceleration.tscn" id="6_tliky"]
+[ext_resource type="PackedScene" uid="uid://chpc3abcqg3x5" path="res://RagDoll.tscn" id="5_4d63m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7rjj"]
-size = Vector3(0.7, 0.7, 0.7)
+size = Vector3(0.448987, 0.324152, 0.537311)
 
-[node name="Node3D2" type="Node3D"]
-script = ExtResource("1_fyvwc")
+[sub_resource type="BoxShape3D" id="BoxShape3D_v5mx5"]
+size = Vector3(0.448987, 0.414336, 0.0485122)
 
-[node name="Frame" type="RigidBody3D" parent="."]
+[sub_resource type="BoxShape3D" id="BoxShape3D_81q81"]
+size = Vector3(0.448987, 0.466763, 0.117877)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kinbe"]
+size = Vector3(0.0555435, 0.070182, 0.387868)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xxn3"]
+size = Vector3(0.0555435, 0.070182, 0.387868)
+
+[node name="Frame" type="RigidBody3D"]
 collision_layer = 3
 collision_mask = 3
 mass = 5.0
+script = ExtResource("1_fyvwc")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Frame"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.570862, 0)
+[node name="FrameMesh" parent="." instance=ExtResource("2_xiye1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.439488, 0)
+
+[node name="CollisionShapeSeat" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.40334, 0.163303)
 shape = SubResource("BoxShape3D_g7rjj")
 
-[node name="Frame2" parent="Frame/CollisionShape3D" instance=ExtResource("2_xiye1")]
+[node name="CollisionShapeBelt" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.924832, 0.238797)
+shape = SubResource("BoxShape3D_v5mx5")
 
-[node name="Lookup" type="Node3D" parent="Frame"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17139, 0)
+[node name="CollisionShapeBack" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.831259, -0.0632171)
+shape = SubResource("BoxShape3D_81q81")
+
+[node name="CollisionShapeArmRestLeft" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.274223, 0.711207, 0.162771)
+shape = SubResource("BoxShape3D_kinbe")
+
+[node name="CollisionShapeArmRestRight" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.274, 0.711, 0.163)
+shape = SubResource("BoxShape3D_0xxn3")
 
 [node name="RearRightWheel" parent="." instance=ExtResource("1_7n7ia")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.343704, 0.440248, -0.0948032)
@@ -34,7 +57,7 @@ collision_mask = 3
 
 [node name="Joint" type="HingeJoint3D" parent="RearRightWheel"]
 transform = Transform3D(1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, 0, 0, 0)
-node_a = NodePath("../../Frame")
+node_a = NodePath("../..")
 node_b = NodePath("..")
 params/bias = 0.99
 motor/enable = true
@@ -46,7 +69,7 @@ collision_mask = 3
 
 [node name="Joint" type="HingeJoint3D" parent="RearLeftWheel"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-node_a = NodePath("../../Frame")
+node_a = NodePath("../..")
 node_b = NodePath("..")
 params/bias = 0.99
 motor/enable = true
@@ -58,7 +81,7 @@ collision_mask = 3
 
 [node name="Joint" type="HingeJoint3D" parent="FrontLeftWheel"]
 transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
-node_a = NodePath("../../Frame")
+node_a = NodePath("../..")
 node_b = NodePath("..")
 
 [node name="FrontRightWheel" parent="." instance=ExtResource("2_fp0qj")]
@@ -68,15 +91,8 @@ collision_mask = 3
 
 [node name="Joint" type="HingeJoint3D" parent="FrontRightWheel"]
 transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
-node_a = NodePath("../../Frame")
+node_a = NodePath("../..")
 node_b = NodePath("..")
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(-1, -2.13163e-14, -8.74228e-08, -2.83784e-08, 0.945848, 0.324611, 8.26886e-08, 0.324611, -0.945848, 0, 1.73455, -2.12756)
-fov = 58.5
-script = ExtResource("2_g21cc")
-lerp_speed = 10.0
-target = NodePath("../Frame/Lookup")
-offset = Vector3(0, 1, -2)
-
-[node name="AudioStreamAcceleration" parent="." instance=ExtResource("6_tliky")]
+[node name="240127 - RagDoll GGJ2024 - armature - linked" parent="." instance=ExtResource("5_4d63m")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -0.00180791, 0.101761)

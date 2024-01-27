@@ -5,7 +5,7 @@ extends Camera3D
 @export var offset = Vector3.ZERO
 
 func _physics_process(delta):
-    var target_xform = target.global_transform.translated_local(offset)
-    global_transform = global_transform.interpolate_with(target_xform, lerp_speed * delta)
+	var target_xform = target.global_transform.translated_local(offset)
+	global_transform = global_transform.interpolate_with(target_xform, lerp_speed * delta)
 
-    look_at(target.global_transform.origin, target.transform.basis.y)
+	look_at(target.global_transform.origin, target.transform.basis.y)
