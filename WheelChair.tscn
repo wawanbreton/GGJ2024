@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbmi4w783qe8x"]
+[gd_scene load_steps=12 format=3 uid="uid://dbmi4w783qe8x"]
 
 [ext_resource type="PackedScene" uid="uid://b0trjlemwwco2" path="res://BigWheel.tscn" id="1_7n7ia"]
 [ext_resource type="Script" path="res://WheelChair.gd" id="1_fyvwc"]
 [ext_resource type="PackedScene" uid="uid://nr417r6mwd1a" path="res://SmallWheel.tscn" id="2_fp0qj"]
 [ext_resource type="PackedScene" uid="uid://c4ra4yuurauov" path="res://Frame.blend" id="2_xiye1"]
 [ext_resource type="PackedScene" uid="uid://chpc3abcqg3x5" path="res://RagDoll.tscn" id="5_4d63m"]
+[ext_resource type="PackedScene" uid="uid://b87o388g77m5b" path="res://Audio/AudioStreamAcceleration.tscn" id="6_1kbkq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7rjj"]
 size = Vector3(0.448987, 0.324152, 0.537311)
@@ -96,3 +97,5 @@ node_b = NodePath("..")
 
 [node name="240127 - RagDoll GGJ2024 - armature - linked" parent="." instance=ExtResource("5_4d63m")]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -0.00180791, 0.101761)
+
+[node name="AudioStreamAcceleration" parent="." instance=ExtResource("6_1kbkq")]
