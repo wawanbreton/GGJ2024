@@ -25,7 +25,7 @@ func _ready():
 		
 		var x: float = sign*poll_group_width/2
 		var y: float = position.y
-		var z: float = (sqrt(pow(hyp,2)-pow(poll_group_width,2)))*n
+		var z: float = (sqrt(pow(hyp,2)-pow(poll_group_width,2)))*n*sign
 		poll_position = Vector3(x,y,z)
 		print(poll_position)
 		create_poll(poll_position)
@@ -34,4 +34,4 @@ func _ready():
 func create_poll(poll_position):
 	var poll_instance: Node3D = poll_scene.instantiate()
 	add_child(poll_instance)
-	poll_instance.global_position = poll_position
+	poll_instance.position = poll_position
