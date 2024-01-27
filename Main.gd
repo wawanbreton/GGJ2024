@@ -27,8 +27,11 @@ func _on_control_start_new_game():
 	add_child(wheelchair)
 	
 	get_node("Checkpoint1").checked = false
+	get_node("Checkpoint1").get_node("MeshInstance3D/Label3D").text = "1"
 	get_node("Checkpoint2").checked = false
+	get_node("Checkpoint2").get_node("MeshInstance3D/Label3D").text = "2"
 	get_node("CheckpointFinal").checked = false
+	get_node("CheckpointFinal").get_node("MeshInstance3D/Label3D").text = "3"
 	
 	get_node("Menu").visible = false
 	get_node("HUD").visible = true
