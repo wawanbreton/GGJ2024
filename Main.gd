@@ -2,6 +2,7 @@ extends Node3D
 
 var WheelChair = preload("res://WheelChair.tscn")
 @onready var audio_stream_lose = $Camera3D/AudioStreamLose
+@onready var global_variables = $GlobalVariables
 
 
 var first = true
@@ -52,21 +53,22 @@ func _on_hud_countdown_over():
 
 func _on_checkpoint_checked_changed(checked, next_checkpoint):
 	if checked:
+		global_variables.update_points(global_variables.CHECKPOINT_AMOUNT)
 		if next_checkpoint:
 			next_checkpoint.active = true
 		else:
-			self._on_game_ended(get_node("HUD").get_score())
+			self._on_game_ended(true, get_node("HUD").get_time())
 
 func _on_wheelchair_tilt():
-	self._on_game_ended(null)
+	self._on_game_ended(false, get_node("HUD").get_time())
 
-func _on_game_ended(score):
+func _on_game_ended(win:bool,time):
 
 	trigger_music_muffle(true)
 	audio_stream_lose.play_in_order()
 	get_node("Wheelchair").active = false
 	get_node("HUD").visible = false
-	get_node("Menu").set_score(score)
+	get_node("Menu").set_score(win, time, global_variables.points)
 	get_node("Menu").visible = true
 
 

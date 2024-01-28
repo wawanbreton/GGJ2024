@@ -21,7 +21,6 @@ func play_in_order():
 	if streams == null || streams.size() == 0:
 		return
 	for audio_file in streams:
-		print(audio_file)
 		stream = audio_file
 		play()
 		await self.finished

@@ -7,4 +7,4 @@
 script = ExtResource("1_1kh4y")
 
 [node name="TestWall2" parent="." instance=ExtResource("1_jagcq")]
-transform = Transform3D(2.8, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0, -1.5)
+transform = Transform3D(2.8, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0, -1.4)
