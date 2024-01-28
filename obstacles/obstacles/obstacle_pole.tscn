@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://dbwll6vad7oj"]
 
 [ext_resource type="Script" path="res://obstacles/obstacles/obstacle_pole.gd" id="1_hu4r8"]
-[ext_resource type="Texture2D" uid="uid://dwiaganhqpljk" path="res://img/pole.svg" id="2_x23lt"]
+[ext_resource type="Texture2D" uid="uid://pwftcg0e8jsh" path="res://img/pole.png" id="2_mpqqj"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_i4v65"]
 radius = 0.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfuje"]
-albedo_texture = ExtResource("2_x23lt")
+albedo_texture = ExtResource("2_mpqqj")
 uv1_scale = Vector3(2, 2, 2)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_75yci"]

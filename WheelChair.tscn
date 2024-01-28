@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://WheelChair.gd" id="1_fyvwc"]
 [ext_resource type="PackedScene" uid="uid://nr417r6mwd1a" path="res://SmallWheel.tscn" id="2_fp0qj"]
 [ext_resource type="PackedScene" uid="uid://c4ra4yuurauov" path="res://Frame.blend" id="2_xiye1"]
-[ext_resource type="PackedScene" uid="uid://chpc3abcqg3x5" path="res://RagDoll.tscn" id="5_4d63m"]
-[ext_resource type="PackedScene" path="res://Audio/AudioStreamAcceleration.tscn" id="6_1kbkq"]
+[ext_resource type="PackedScene" uid="uid://bhbgc8np338w2" path="res://RagDoll.tscn" id="5_4d63m"]
+[ext_resource type="PackedScene" uid="uid://b87o388g77m5b" path="res://Audio/AudioStreamAcceleration.tscn" id="6_1kbkq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7rjj"]
-size = Vector3(0.448987, 0.324152, 0.537311)
+size = Vector3(0.448987, 0.372525, 0.642201)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v5mx5"]
 size = Vector3(0.448987, 0.414336, 0.0485122)
@@ -32,11 +32,11 @@ script = ExtResource("1_fyvwc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.439488, 0)
 
 [node name="CollisionShapeSeat" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.40334, 0.163303)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.379153, 0.046426)
 shape = SubResource("BoxShape3D_g7rjj")
 
 [node name="CollisionShapeBelt" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.832364, 0.206937)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 1.02057, 0.294339)
 shape = SubResource("BoxShape3D_v5mx5")
 
 [node name="CollisionShapeBack" type="CollisionShape3D" parent="."]
@@ -96,6 +96,6 @@ node_a = NodePath("../..")
 node_b = NodePath("..")
 
 [node name="Ragdoll" parent="." instance=ExtResource("5_4d63m")]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -0.00180791, 0.101761)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.458856, 0.101761)
 
 [node name="AudioStreamAcceleration" parent="." instance=ExtResource("6_1kbkq")]
