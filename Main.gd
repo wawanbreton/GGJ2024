@@ -3,6 +3,7 @@ extends Node3D
 var WheelChair = preload("res://WheelChair.tscn")
 @onready var audio_stream_lose = $Camera3D/AudioStreamLose
 @onready var global_variables = $GlobalVariables
+@onready var audio_stream_win = $Camera3D/AudioStreamWin
 
 
 var first = true
@@ -65,7 +66,12 @@ func _on_wheelchair_tilt():
 func _on_game_ended(win:bool,time):
 
 	trigger_music_muffle(true)
-	audio_stream_lose.play_in_order()
+	if win:
+		audio_stream_win.play_in_order()
+		Input.vibrate_handheld(1000)
+	else:
+		audio_stream_lose.play_in_order()
+		Input.vibrate_handheld(1000)
 	get_node("Wheelchair").active = false
 	get_node("HUD").visible = false
 	get_node("Menu").set_score(win, time, global_variables.points)
