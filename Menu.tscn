@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4r8dksu3kfe8"]
+[gd_scene load_steps=7 format=3 uid="uid://b4r8dksu3kfe8"]
 
 [ext_resource type="Shader" path="res://BlurShader.gdshader" id="1_7qd24"]
 [ext_resource type="Script" path="res://Menu.gd" id="1_d68gx"]
@@ -6,6 +6,12 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qik26"]
 shader = ExtResource("1_7qd24")
 shader_parameter/lod = 2.5
+
+[sub_resource type="InputEventAction" id="InputEventAction_w8y36"]
+action = &"Start"
+
+[sub_resource type="Shortcut" id="Shortcut_m0tfj"]
+events = [SubResource("InputEventAction_w8y36")]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j642m"]
 font_size = 128
@@ -45,10 +51,11 @@ offset_bottom = 249.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+shortcut = SubResource("Shortcut_m0tfj")
 text = "< Start new Game >"
 flat = true
 
-[node name="LabelScore" type="Label" parent="."]
+[node name="LabelWin" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -62,9 +69,7 @@ offset_bottom = 263.808
 grow_horizontal = 2
 grow_vertical = 2
 text = "YAAY! You succesfully
-completed the testing run
-
-score"
+completed the testing run"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -84,9 +89,42 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.88, 0.1936, 0.1936, 1)
 text = "Congratulations!
 You successfully broke
-the chair
+the chair"
+horizontal_alignment = 1
 
-score: 9999999"
+[node name="LabelTime" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.329
+anchor_right = 0.5
+anchor_bottom = 0.329
+offset_left = -550.0
+offset_top = 206.808
+offset_right = -42.0
+offset_bottom = 428.808
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.88, 0.1936, 0.1936, 1)
+text = "Time"
+horizontal_alignment = 1
+
+[node name="LabelPoints" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.329
+anchor_right = 0.5
+anchor_bottom = 0.329
+offset_left = 4.0
+offset_top = 207.808
+offset_right = 512.0
+offset_bottom = 429.808
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.88, 0.1936, 0.1936, 1)
+text = "Points
+"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="."]

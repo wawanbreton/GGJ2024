@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://levelblocks/test_wall.gd" id="1_shu1l"]
 [ext_resource type="Texture2D" uid="uid://unsckvu58mh5" path="res://img/vertical-gray-wall-small.png" id="2_ds7db"]
 [ext_resource type="Texture2D" uid="uid://cxl2i1hbeddj" path="res://img/vertical-gray-wall-small-7.png" id="3_lfhqd"]
-[ext_resource type="PackedScene" path="res://Audio/AudioStreamAcceleration.tscn" id="5_6i24b"]
+[ext_resource type="PackedScene" uid="uid://b87o388g77m5b" path="res://Audio/AudioStreamAcceleration.tscn" id="5_6i24b"]
 [ext_resource type="AudioStream" uid="uid://co34e7umpdkl1" path="res://Audio/crash_sounds/crash1.wav" id="6_rphtb"]
 [ext_resource type="AudioStream" uid="uid://dmmdhok1i1i1u" path="res://Audio/crash_sounds/crash2.wav" id="7_sd2ce"]
 [ext_resource type="Texture2D" uid="uid://cmt0pksvnrxc2" path="res://img/vertical-gray-wall-small-5.png" id="7_sopi4"]

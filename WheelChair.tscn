@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b87o388g77m5b" path="res://Audio/AudioStreamAcceleration.tscn" id="6_1kbkq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7rjj"]
-size = Vector3(0.448987, 0.372525, 0.642201)
+size = Vector3(0.448987, 0.372525, 0.517878)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v5mx5"]
 size = Vector3(0.448987, 0.414336, 0.0485122)
@@ -32,7 +32,7 @@ script = ExtResource("1_fyvwc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.439488, 0)
 
 [node name="CollisionShapeSeat" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.379153, 0.046426)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000738502, 0.379153, 0.108588)
 shape = SubResource("BoxShape3D_g7rjj")
 
 [node name="CollisionShapeBelt" type="CollisionShape3D" parent="."]

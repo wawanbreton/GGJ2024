@@ -2,9 +2,11 @@ extends Node3D
 
 @export var audioArray : Array[Resource]
 
+signal test_block_points(points)
 var red := 0.0
 var next_pos := Vector3(99,99,99)
 @onready var _pos := self.position
+var points_recieved: bool = false
 
 func _ready():
 	if next_pos.y > 98:
@@ -24,6 +26,11 @@ func _on_body_entered(body):
 			randomize()
 			get_node("AudioStreamPlayer3D").stream = audioArray[ randi_range(0,1) ]
 			get_node("AudioStreamPlayer3D").play()
+			if not points_recieved:
+				var global_points_node = get_parent().get_parent().get_node("GlobalVariables")
+				global_points_node.update_points(global_points_node.ARROW_POINT_AMOUNT)
+				points_recieved = true
+			
 
 var time := 0.0
 func _process(delta):
