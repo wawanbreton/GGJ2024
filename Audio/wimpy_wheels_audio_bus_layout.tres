@@ -1,0 +1,24 @@
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://cdyi2ogauu5ml"]
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_gotn2"]
+resource_name = "LowPassFilter"
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_qxuc8"]
+resource_name = "LowPassFilter"
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_y3rqr"]
+resource_name = "LowPassFilter"
+
+[resource]
+bus/1/name = &"Losing"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -0.128275
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectLowPassFilter_gotn2")
+bus/1/effect/0/enabled = false
+bus/1/effect/1/effect = SubResource("AudioEffectLowPassFilter_qxuc8")
+bus/1/effect/1/enabled = false
+bus/1/effect/2/effect = SubResource("AudioEffectLowPassFilter_y3rqr")
+bus/1/effect/2/enabled = false
