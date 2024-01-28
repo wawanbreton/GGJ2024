@@ -8,6 +8,7 @@ var _time_start = 0
 @export var global_points: Node
 
 signal countdown_over
+signal swipe(key, power)
 
 func start_countdown():
 	self._countdown = 4
@@ -44,3 +45,7 @@ func _on_timer_timeout():
 		label_points.text = str(global_points.points)
 		label_start_count.visible = false
 		emit_signal("countdown_over")
+
+
+func _on_swipe(key, power):
+	swipe.emit(key, power)
