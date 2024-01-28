@@ -6,6 +6,7 @@ extends RigidBody3D
 
 var rotation_counter_left : float = 0
 var rotation_counter_right : float = 0
+var _touch_active = false
 
 signal start_game
 signal tilt
@@ -20,37 +21,49 @@ func set_active(new_active):
 	get_node("RearLeftWheel/Joint").set_flag(HingeJoint3D.FLAG_ENABLE_MOTOR, new_active)
 	get_node("RearRightWheel/Joint").set_flag(HingeJoint3D.FLAG_ENABLE_MOTOR, new_active)
 
+func send_motor_power(direction, power):
+	if self.active:
+		self._touch_active = true
+		
+		var node = null
+		if direction == "left":
+			node = get_node("RearLeftWheel/Joint")
+		else:
+			node = get_node("RearRightWheel/Joint")
+			
+		node.set_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY, power * 2)
+
 func _physics_process(delta):
 	var euler = self.global_transform.basis.get_euler()
 	if self.active and (absf(euler.x) > PI / 3 or absf(euler.z) > PI / 3):
 		emit_signal("tilt")
 
-	var target_speed = 5
-	var acceleration = target_speed
-	
-	var left_up = Input.get_action_strength("LeftMotorUp")
-	var left_down = Input.get_action_strength("LeftMotorDown")
-	var left = left_up - left_down
-	var right_up = Input.get_action_strength("RightMotorUp")
-	var right_down = Input.get_action_strength("RightMotorDown")
-	var right = right_up - right_down
-	
-	var node_left = get_node("RearLeftWheel/Joint")
-	left = lerp(node_left.get_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY), 
-				left * target_speed,
-				delta * acceleration)
-	node_left.set_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY, left)
-	
-	var node_right = get_node("RearRightWheel/Joint")
-	right = lerp(node_right.get_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY) , 
-				 right * target_speed,
-				 delta * acceleration)
-	node_right.set_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY, right)
-	
-	self.apply_impulse(Vector3(0,Input.get_action_strength("Jet") * 70 * delta,0))
-	
-	audio_squeek(delta, left, right)
-	
+	if not self._touch_active:
+		var target_speed = 5
+		var acceleration = target_speed
+		
+		var left_up = Input.get_action_strength("LeftMotorUp")
+		var left_down = Input.get_action_strength("LeftMotorDown")
+		var left = left_up - left_down
+		var right_up = Input.get_action_strength("RightMotorUp")
+		var right_down = Input.get_action_strength("RightMotorDown")
+		var right = right_up - right_down
+		
+		var node_left = get_node("RearLeftWheel/Joint")
+		left = lerp(node_left.get_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY), 
+					left * target_speed,
+					delta * acceleration)
+		node_left.set_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY, left)
+		
+		var node_right = get_node("RearRightWheel/Joint")
+		right = lerp(node_right.get_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY) , 
+					 right * target_speed,
+					 delta * acceleration)
+		node_right.set_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY, right)
+		
+		self.apply_impulse(Vector3(0,Input.get_action_strength("Jet") * 70 * delta,0))
+		
+		audio_squeek(delta, left, right)
 	
 func audio_squeek(delta, left, right):
 	
