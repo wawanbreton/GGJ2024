@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://crrm28snvwg7b"]
+
+[ext_resource type="PackedScene" uid="uid://belye7jwwby5a" path="res://environment/factory_wall.tscn" id="1_a8y3u"]
+[ext_resource type="PackedScene" uid="uid://d0vue61xyekh4" path="res://obstacles/obstacles/obstacle_double_doors.tscn" id="2_p50w3"]
+[ext_resource type="PackedScene" uid="uid://18m3xmxshvfj" path="res://levelblocks/single_wall.tscn" id="3_ou7xo"]
+
+[node name="Factory" type="Node3D"]
+
+[node name="Walls" type="Node3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 20, 10, 20)
+
+[node name="FactoryWall" parent="Walls" instance=ExtResource("1_a8y3u")]
+transform = Transform3D(80, 0, 0, 0, 40, 0, 0, 0, 0.2, -50, 0, -50)
+
+[node name="FactoryWall2" parent="Walls" instance=ExtResource("1_a8y3u")]
+transform = Transform3D(-3.49691e-06, 0, 0.2, 0, 40, 0, -80, 0, -8.74228e-09, -50, 0, -50)
+
+[node name="FactoryWall3" parent="Walls" instance=ExtResource("1_a8y3u")]
+transform = Transform3D(80, 0, 0, 0, 40, 0, 0, 0, 0.2, -50, 0, 50)
+
+[node name="FactoryWall4" parent="Walls" instance=ExtResource("1_a8y3u")]
+transform = Transform3D(-3.49691e-06, 0, 0.2, 0, 40, 0, -80, 0, -8.74228e-09, -50, 0, 50)
+
+[node name="FactoryWall5" parent="Walls" instance=ExtResource("1_a8y3u")]
+transform = Transform3D(80, 0, 0, 0, 40, 0, 0, 0, 0.2, 50, 0, -50)
+
+[node name="FactoryWall6" parent="Walls" instance=ExtResource("1_a8y3u")]
+transform = Transform3D(-3.49691e-06, 0, 0.2, 0, 40, 0, -80, 0, -8.74228e-09, 50, 0, -50)
+
+[node name="FactoryWall7" parent="Walls" instance=ExtResource("1_a8y3u")]
+transform = Transform3D(80, 0, 0, 0, 40, 0, 0, 0, 0.2, 50, 0, 50)
+
+[node name="FactoryWall8" parent="Walls" instance=ExtResource("1_a8y3u")]
+transform = Transform3D(-3.49691e-06, 0, 0.2, 0, 40, 0, -80, 0, -8.74228e-09, 50, 0, 50)
+
+[node name="Doors" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -0.5, 20)
+
+[node name="ObstacleDoors" parent="Doors" instance=ExtResource("2_p50w3")]
+transform = Transform3D(-2.62268e-07, 0, 6, 0, 6, 0, -6, 0, -2.62268e-07, -30, 6, 0)
+
+[node name="ObstacleDoors2" parent="Doors" instance=ExtResource("2_p50w3")]
+transform = Transform3D(-2.62268e-07, 0, 6, 0, 6, 0, -6, 0, -2.62268e-07, 30, 6, 0)
+
+[node name="ObstacleDoors3" parent="Doors" instance=ExtResource("2_p50w3")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 6, -30)
+
+[node name="ObstacleDoors4" parent="Doors" instance=ExtResource("2_p50w3")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 6, 30)
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Stops" type="Node3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="SingleWall" parent="Stops" instance=ExtResource("3_ou7xo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.2, 20)
+
+[node name="SingleWall4" parent="Stops" instance=ExtResource("3_ou7xo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0.2, 20)
+
+[node name="SingleWall2" parent="Stops" instance=ExtResource("3_ou7xo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0.2, 32.5)
+
+[node name="SingleWall3" parent="Stops" instance=ExtResource("3_ou7xo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0.2, -6)

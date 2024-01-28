@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://belye7jwwby5a"]
+
+[ext_resource type="Texture2D" uid="uid://co7csjuf5cq8l" path="res://img/brickwall.png" id="1_q5jwl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7857u"]
+albedo_texture = ExtResource("1_q5jwl")
+uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nrkp5"]
+
+[node name="FactoryWall" type="Node3D"]
+transform = Transform3D(80, 0, 0, 0, 40, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_7857u")
+
+[node name="Wall" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+shape = SubResource("BoxShape3D_nrkp5")

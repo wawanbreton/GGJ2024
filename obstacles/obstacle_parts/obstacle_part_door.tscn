@@ -1,6 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dannx8c4crrn6"]
+[gd_scene load_steps=5 format=3 uid="uid://dannx8c4crrn6"]
+
+[ext_resource type="Texture2D" uid="uid://djg7k5onylx2y" path="res://img/woodbox.png" id="1_q4hgn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12j55"]
+albedo_texture = ExtResource("1_q4hgn")
+uv1_scale = Vector3(12, 12, 12)
+uv2_scale = Vector3(0, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_r8rik"]
+material = SubResource("StandardMaterial3D_12j55")
 size = Vector3(0.9, 1.85, 0.05)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7lmwj"]

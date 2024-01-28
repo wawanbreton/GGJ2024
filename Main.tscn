@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4ed6petbfp7w"]
+[gd_scene load_steps=14 format=3 uid="uid://b4ed6petbfp7w"]
 
 [ext_resource type="PackedScene" uid="uid://2tm4edtiy5h2" path="res://Floor.tscn" id="1_i0gtf"]
 [ext_resource type="Script" path="res://Main.gd" id="1_yh6gx"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b87o388g77m5b" path="res://Audio/AudioStreamAcceleration.tscn" id="9_xf2bs"]
 [ext_resource type="AudioStream" uid="uid://cvbcwxvd6bada" path="res://Audio/lose/lose2.wav" id="10_0xtbv"]
 [ext_resource type="AudioStream" uid="uid://bnhd60i563osg" path="res://Audio/lose/boo-6377.mp3" id="11_mh2vv"]
+[ext_resource type="PackedScene" uid="uid://crrm28snvwg7b" path="res://environment/factory.tscn" id="12_fr88b"]
 
 [sub_resource type="Environment" id="Environment_2sg5e"]
 background_mode = 1
@@ -63,6 +64,8 @@ transform = Transform3D(1, 0, 2.13163e-14, 0, 1, 0, -2.13163e-14, 0, 1, 0, 1.040
 
 [node name="Level" parent="." instance=ExtResource("3_to28k")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Factory" parent="." instance=ExtResource("12_fr88b")]
 
 [connection signal="countdown_over" from="HUD" to="." method="_on_hud_countdown_over"]
 [connection signal="start_new_game" from="Menu" to="." method="_on_control_start_new_game"]
