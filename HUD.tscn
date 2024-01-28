@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7ipf58q4301f"]
+[gd_scene load_steps=3 format=3 uid="uid://c7ipf58q4301f"]
 
 [ext_resource type="Script" path="res://HUD.gd" id="1_xf70f"]
+[ext_resource type="PackedScene" uid="uid://ba10ms53gb6tr" path="res://SwipeDetector.tscn" id="2_indim"]
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -39,4 +40,20 @@ text = "3"
 [node name="TimerCountdown" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="SwipeLeft" parent="." instance=ExtResource("2_indim")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+grow_horizontal = 1
+key = "left"
+
+[node name="SwipeRight" parent="." instance=ExtResource("2_indim")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+grow_horizontal = 1
+key = "right"
+
 [connection signal="timeout" from="TimerCountdown" to="." method="_on_timer_timeout"]
+[connection signal="swipe" from="SwipeLeft" to="." method="_on_swipe"]
+[connection signal="swipe" from="SwipeRight" to="." method="_on_swipe"]

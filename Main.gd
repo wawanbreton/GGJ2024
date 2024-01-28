@@ -30,6 +30,7 @@ func _on_control_start_new_game():
 	wheelchair = WheelChair.instantiate()
 	wheelchair.name = "Wheelchair"
 	wheelchair.tilt.connect(_on_wheelchair_tilt)
+	get_node("HUD").swipe.connect(Callable(wheelchair, "send_motor_power"))
 	wheelchair.add_child(lookup_node)
 	add_child(wheelchair)
 	

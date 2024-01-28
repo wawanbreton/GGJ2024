@@ -4,6 +4,7 @@ var _countdown = 0
 var _time_start = 0
 
 signal countdown_over
+signal swipe(key, power)
 
 func start_countdown():
 	self._countdown = 4
@@ -37,3 +38,7 @@ func _on_timer_timeout():
 		get_node("LabelTime").visible = true
 		get_node("LabelStartCount").visible = false
 		emit_signal("countdown_over")
+
+
+func _on_swipe(key, power):
+	swipe.emit(key, power)
