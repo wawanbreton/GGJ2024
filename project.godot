@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GGJ2024"
+config/name="Wimpy Wheels"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 [audio]
 
 buses/default_bus_layout="res://Audio/wimpy_wheels_audio_bus_layout.tres"
+
+[display]
+
+window/handheld/orientation=1
 
 [gui]
 
@@ -68,6 +72,10 @@ Start={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [layer_names]
 
 3d_physics/layer_3="Layer 3"
@@ -79,3 +87,4 @@ Start={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

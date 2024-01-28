@@ -1,10 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://xn8nk31mw47"]
 
 [ext_resource type="Script" path="res://obstacles/blocks/block_ramp.gd" id="1_q8mli"]
-[ext_resource type="Texture2D" uid="uid://cnfva1skemsdh" path="res://img/metalish_thing.png" id="2_tt1op"]
+[ext_resource type="Texture2D" uid="uid://d0dlocxgxhtvv" path="res://img/metalish_ramp.png" id="2_ege8i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y763c"]
-albedo_texture = ExtResource("2_tt1op")
+albedo_texture = ExtResource("2_ege8i")
+uv1_scale = Vector3(12, 12, 12)
 
 [sub_resource type="PrismMesh" id="PrismMesh_sylx4"]
 material = SubResource("StandardMaterial3D_y763c")
