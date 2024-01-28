@@ -7,7 +7,7 @@
 script = ExtResource("1_3lsgv")
 
 [node name="TestWall" parent="." instance=ExtResource("1_geofc")]
-transform = Transform3D(2.8, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0, 1.5)
+transform = Transform3D(2.8, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0, 1.4)
 
 [node name="TestWall2" parent="." instance=ExtResource("1_geofc")]
-transform = Transform3D(2.8, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0, -1.5)
+transform = Transform3D(2.8, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0, -1.4)
