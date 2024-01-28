@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnfva1skemsdh"
 path.s3tc="res://.godot/imported/metalish_thing.png-eb57209e18f1d6b6b2844183d536a199.s3tc.ctex"
+path.etc2="res://.godot/imported/metalish_thing.png-eb57209e18f1d6b6b2844183d536a199.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://img/metalish_thing.png"
-dest_files=["res://.godot/imported/metalish_thing.png-eb57209e18f1d6b6b2844183d536a199.s3tc.ctex"]
+dest_files=["res://.godot/imported/metalish_thing.png-eb57209e18f1d6b6b2844183d536a199.s3tc.ctex", "res://.godot/imported/metalish_thing.png-eb57209e18f1d6b6b2844183d536a199.etc2.ctex"]
 
 [params]
 

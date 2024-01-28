@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4ed6petbfp7w"]
+[gd_scene load_steps=17 format=3 uid="uid://b4ed6petbfp7w"]
 
 [ext_resource type="PackedScene" uid="uid://2tm4edtiy5h2" path="res://Floor.tscn" id="1_i0gtf"]
 [ext_resource type="Script" path="res://Main.gd" id="1_yh6gx"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bvqrpit1ed7ph" path="res://Audio/MusicPlayer.tscn" id="7_yjk1q"]
 [ext_resource type="PackedScene" uid="uid://b87o388g77m5b" path="res://Audio/AudioStreamAcceleration.tscn" id="9_xf2bs"]
 [ext_resource type="AudioStream" uid="uid://cvbcwxvd6bada" path="res://Audio/lose/lose2.wav" id="10_0xtbv"]
+[ext_resource type="AudioStream" uid="uid://yd770uhkr0ac" path="res://Audio/nice sounds/1up.wav" id="11_3mn3y"]
 [ext_resource type="AudioStream" uid="uid://bnhd60i563osg" path="res://Audio/lose/boo-6377.mp3" id="11_mh2vv"]
+[ext_resource type="AudioStream" uid="uid://jg4i6ora6bu8" path="res://Audio/nice sounds/small-applause-6695.mp3" id="12_cls78"]
 [ext_resource type="PackedScene" uid="uid://crrm28snvwg7b" path="res://environment/factory.tscn" id="12_fr88b"]
 
 [sub_resource type="Environment" id="Environment_2sg5e"]
@@ -77,6 +79,10 @@ bus = &"Losing"
 [node name="AudioStreamLose" parent="Camera3D" instance=ExtResource("9_xf2bs")]
 transform = Transform3D(-1, 0, 0, 0, 0.945848, 0.324611, 0, 0.324611, -0.945848, 0, -0.825735, -2.53276)
 streams = Array[AudioStream]([ExtResource("10_0xtbv"), ExtResource("11_mh2vv")])
+
+[node name="AudioStreamWin" parent="Camera3D" instance=ExtResource("9_xf2bs")]
+transform = Transform3D(-1, 0, 0, 0, 0.945848, 0.324611, 0, 0.324611, -0.945848, 0, -0.825735, -2.53276)
+streams = Array[AudioStream]([ExtResource("11_3mn3y"), ExtResource("12_cls78")])
 
 [node name="Lookup" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 2.13163e-14, 0, 1, 0, -2.13163e-14, 0, 1, 0, 3, 0)

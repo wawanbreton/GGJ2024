@@ -28,7 +28,9 @@ func set_score(win, time, points):
 	label_points.text = "Points : %s" % points
 	if win:
 		label_win.visible = true
+		label_defeat.visible = false
 	else:
 		label_defeat.visible = true
+		label_win.visible = false
 	#get_node("LabelScore").visible = score != global_points.points
 	#get_node("LabelDefeat").visible = score == global_points.points

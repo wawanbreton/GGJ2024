@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://unsckvu58mh5"
 path.s3tc="res://.godot/imported/vertical-gray-wall-small.png-51d26ebb830b099fc31ede872cc0fb06.s3tc.ctex"
+path.etc2="res://.godot/imported/vertical-gray-wall-small.png-51d26ebb830b099fc31ede872cc0fb06.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://img/vertical-gray-wall-small.png"
-dest_files=["res://.godot/imported/vertical-gray-wall-small.png-51d26ebb830b099fc31ede872cc0fb06.s3tc.ctex"]
+dest_files=["res://.godot/imported/vertical-gray-wall-small.png-51d26ebb830b099fc31ede872cc0fb06.s3tc.ctex", "res://.godot/imported/vertical-gray-wall-small.png-51d26ebb830b099fc31ede872cc0fb06.etc2.ctex"]
 
 [params]
 
