@@ -15,10 +15,28 @@ collision_mask = 2
 script = ExtResource("1_tgopi")
 audioArray = Array[Resource]([ExtResource("2_ub4rs"), ExtResource("3_bmvfd")])
 
-[node name="VisualShape" type="CSGSphere3D" parent="."]
+[node name="VisualShape" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17705, 0.747476, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="VisualShape"]
+transform = Transform3D(0.6809, -0.732377, 0, -0.0115676, -0.0107546, 0.999875, -0.732285, -0.680815, -0.0157946, 0, 0, 0)
+size = Vector3(1, 1, 0.6)
+
+[node name="VisualShapeFront" type="CSGCombiner3D" parent="VisualShape"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+operation = 2
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="VisualShape/VisualShapeFront"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434061, -1.25, 0)
+size = Vector3(1, 2, 2)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="VisualShape"]
+transform = Transform3D(0.00270529, 0.999996, 0, -0.999996, 0.00270529, 0, 0, 0, 1, 0.42971, 0, 0)
+radius = 0.259
+height = 1.47418
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.695469, 0)
 shape = SubResource("SphereShape3D_fldr0")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
