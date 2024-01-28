@@ -146,7 +146,8 @@ func _make_maze():
 	var checkpt_strs = ["Checkpoint1", "Checkpoint2", "CheckpointFinal"]
 	for i in range(1,4):  # '0' would be the start, which is a strange place for a checkpt.
 		var check_node = self.get_parent().get_node(checkpt_strs[i - 1])
-		check_node.global_position = (path_to_end[i*next_check_when] + Vector3(0.5, 0.5, 0.5)) * Vector3(3, 3, 3)
+		if check_node:
+			check_node.global_position = (path_to_end[i*next_check_when] + Vector3(0.0, 0.5, 0.0)) * Vector3(3, 3, 3)
 
 	return path_to_end
 
