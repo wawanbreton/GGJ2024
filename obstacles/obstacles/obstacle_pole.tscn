@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbwll6vad7oj"]
+[gd_scene load_steps=6 format=3 uid="uid://dbwll6vad7oj"]
 
 [ext_resource type="Script" path="res://obstacles/obstacles/obstacle_pole.gd" id="1_hu4r8"]
+[ext_resource type="Texture2D" uid="uid://uvlswwqpxliv" path="res://img/woodbox.png" id="2_xt7qg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_i4v65"]
 radius = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37gl8"]
+albedo_texture = ExtResource("2_xt7qg")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_75yci"]
 top_radius = 0.1
@@ -18,4 +22,5 @@ script = ExtResource("1_hu4r8")
 shape = SubResource("CylinderShape3D_i4v65")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ObstaclePoll/CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_37gl8")
 mesh = SubResource("CylinderMesh_75yci")

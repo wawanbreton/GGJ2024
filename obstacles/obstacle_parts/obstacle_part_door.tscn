@@ -1,4 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dannx8c4crrn6"]
+[gd_scene load_steps=5 format=3 uid="uid://dannx8c4crrn6"]
+
+[ext_resource type="Texture2D" uid="uid://uvlswwqpxliv" path="res://img/woodbox.png" id="1_3qe3g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dm1dk"]
+albedo_texture = ExtResource("1_3qe3g")
 
 [sub_resource type="BoxMesh" id="BoxMesh_r8rik"]
 size = Vector3(0.9, 1.85, 0.05)
@@ -9,6 +14,7 @@ size = Vector3(0.9, 1.85, 0.05)
 [node name="Door" type="RigidBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_dm1dk")
 mesh = SubResource("BoxMesh_r8rik")
 skeleton = NodePath("../..")
 

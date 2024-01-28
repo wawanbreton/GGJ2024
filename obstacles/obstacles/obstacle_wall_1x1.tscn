@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpqqwbxpjf4au"]
+[gd_scene load_steps=6 format=3 uid="uid://cpqqwbxpjf4au"]
 
 [ext_resource type="Script" path="res://obstacles/obstacles/obstacle_wall_1x1.gd" id="1_l8a55"]
+[ext_resource type="Texture2D" uid="uid://uvlswwqpxliv" path="res://img/woodbox.png" id="2_3rx67"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ku4m8"]
 size = Vector3(1, 1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7hkal"]
+albedo_texture = ExtResource("2_3rx67")
 
 [sub_resource type="BoxMesh" id="BoxMesh_5vk48"]
 size = Vector3(1, 1, 0.1)
@@ -15,4 +19,5 @@ script = ExtResource("1_l8a55")
 shape = SubResource("BoxShape3D_ku4m8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_7hkal")
 mesh = SubResource("BoxMesh_5vk48")

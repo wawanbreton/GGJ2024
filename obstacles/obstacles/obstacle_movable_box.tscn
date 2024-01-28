@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwf73tp1icmxs"]
+[gd_scene load_steps=6 format=3 uid="uid://bwf73tp1icmxs"]
 
 [ext_resource type="Script" path="res://obstacles/obstacles/obstacle_movable_box.gd" id="1_c5knd"]
+[ext_resource type="Texture2D" uid="uid://uvlswwqpxliv" path="res://img/woodbox.png" id="2_67cmu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1xa01"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0s7g"]
+albedo_texture = ExtResource("2_67cmu")
 
 [sub_resource type="BoxMesh" id="BoxMesh_4gdw0"]
 
@@ -15,4 +19,5 @@ script = ExtResource("1_c5knd")
 shape = SubResource("BoxShape3D_1xa01")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ObstacleMovableBox/CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_l0s7g")
 mesh = SubResource("BoxMesh_4gdw0")
