@@ -146,19 +146,26 @@ func _make_maze():
 	var checkpt_strs = ["Checkpoint1", "Checkpoint2", "CheckpointFinal"]
 	for i in range(1,4):  # '0' would be the start, which is a strange place for a checkpt.
 		var check_node = self.get_parent().get_node(checkpt_strs[i - 1])
-		check_node.global_position = (path_to_end[i*next_check_when] + Vector3(0.5, 0.5, 0.5)) * Vector3(3, 3, 3)
+		if check_node:
+			check_node.global_position = (path_to_end[i*next_check_when] + Vector3(0.0, 0.5, 0.0)) * Vector3(3, 3, 3)
 
 	return path_to_end
 
 func _mark_path(path_to_end):
+	path_to_end.reverse() # hacky
 	var fli = -1
+	var next_pos = null
 	for grid_pos in path_to_end:
 		fli += 1
 		var marker = _TEST_B_SCN.instantiate()
-		marker.red = (1.0 / len(path_to_end)) * fli
+		marker.red = 1.0 - ((1.0 / len(path_to_end)) * fli)
 		marker.position = grid_pos * BLOCK_DIMENSIONS
+		if next_pos != null:
+			marker.next_pos = next_pos
 		self.add_child(marker)
 		_markers.append(marker)
+		next_pos = marker.position
+	path_to_end.reverse() # un-hacky
 
 func _rotate_array(arr):
 	return [ arr[1], arr[2], arr[3], arr[0] ]
