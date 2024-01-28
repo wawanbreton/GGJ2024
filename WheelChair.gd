@@ -1,4 +1,4 @@
-extends Node3D
+extends RigidBody3D
 
 @export var active: bool : set = set_active, get = get_active
 @onready var rear_left_wheel = $RearLeftWheel
@@ -47,8 +47,13 @@ func _physics_process(delta):
 				 delta * acceleration)
 	node_right.set_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY, right)
 	
+	if Input.is_action_just_pressed("Jet"):
+		launch_jets()
+	
 	audio_squeek(delta, left, right)
 
+func launch_jets():
+	self.apply_impulse(Vector3(0,30,0))
 	
 func audio_squeek(delta, left, right):
 	

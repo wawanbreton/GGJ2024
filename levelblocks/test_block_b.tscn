@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdkpb2j44ignd"]
+[gd_scene load_steps=6 format=3 uid="uid://bdkpb2j44ignd"]
 
 [ext_resource type="Script" path="res://levelblocks/test_block_b.gd" id="1_tgopi"]
+[ext_resource type="AudioStream" uid="uid://yd770uhkr0ac" path="res://Audio/nice sounds/1up.wav" id="2_ncomr"]
+[ext_resource type="AudioStream" uid="uid://bwst658bgjoh1" path="res://Audio/nice sounds/de-ling.wav" id="2_ub4rs"]
+[ext_resource type="AudioStream" uid="uid://b3h8co2w8d5e2" path="res://Audio/nice sounds/de-liiing.wav" id="3_bmvfd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fldr0"]
 radius = 1.5
@@ -10,6 +13,7 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_tgopi")
+audioArray = Array[Resource]([ExtResource("2_ub4rs"), ExtResource("3_bmvfd")])
 
 [node name="VisualShape" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17705, 0.747476, 0)
@@ -34,5 +38,8 @@ height = 1.47418
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.695469, 0)
 shape = SubResource("SphereShape3D_fldr0")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_ncomr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d08m5x2f6cwkv"
+path="res://.godot/imported/pe-ling.wav-7853febf4cf16ddcf3e25ecf8994bc5c.sample"
+
+[deps]
+
+source_file="res://Audio/nice sounds/pe-ling.wav"
+dest_files=["res://.godot/imported/pe-ling.wav-7853febf4cf16ddcf3e25ecf8994bc5c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

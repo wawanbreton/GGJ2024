@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var audioArray : Array[Resource]
+
 var red := 0.0
 var next_pos := Vector3(99,99,99)
 @onready var _pos := self.position
@@ -18,6 +20,10 @@ func _ready():
 func _on_body_entered(body):
 	if is_instance_valid(body) and body.name == "Wheelchair":
 		$VisualShape.material_override.albedo_color = Color((1.0-red)/2.5, 0.4, red/2.5)
+		if (!get_node("AudioStreamPlayer3D").playing) :
+			randomize()
+			get_node("AudioStreamPlayer3D").stream = audioArray[ randi_range(0,1) ]
+			get_node("AudioStreamPlayer3D").play()
 
 var time := 0.0
 func _process(delta):
