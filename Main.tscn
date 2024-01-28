@@ -48,7 +48,7 @@ target = NodePath("../Lookup")
 offset = Vector3(0, 1, -2)
 
 [node name="AudioStreamPlayer3D" parent="Camera3D" instance=ExtResource("7_yjk1q")]
-transform = Transform3D(-1, -2.83784e-08, 8.26886e-08, -2.13163e-14, 0.945848, 0.324611, -8.74228e-08, 0.324611, -0.945848, 2.21421e-07, -0.825731, -2.53276)
+transform = Transform3D(-1, 0, 0, 0, 0.945848, 0.324611, 0, 0.324611, -0.945848, 0, -0.825731, -2.53276)
 
 [node name="Lookup" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 2.13163e-14, 0, 1, 0, -2.13163e-14, 0, 1, 0, 1.04002, 0)
