@@ -25,8 +25,8 @@ func _physics_process(delta):
 	if self.active and (absf(euler.x) > PI / 3 or absf(euler.z) > PI / 3):
 		emit_signal("tilt")
 
-	var acceleration = 5
 	var target_speed = 5
+	var acceleration = target_speed
 	
 	var left_up = Input.get_action_strength("LeftMotorUp")
 	var left_down = Input.get_action_strength("LeftMotorDown")
@@ -47,13 +47,10 @@ func _physics_process(delta):
 				 delta * acceleration)
 	node_right.set_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY, right)
 	
-	if Input.is_action_just_pressed("Jet"):
-		launch_jets()
+	self.apply_impulse(Vector3(0,Input.get_action_strength("Jet") * 70 * delta,0))
 	
 	audio_squeek(delta, left, right)
-
-func launch_jets():
-	self.apply_impulse(Vector3(0,30,0))
+	
 	
 func audio_squeek(delta, left, right):
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4r8dksu3kfe8"]
+[gd_scene load_steps=7 format=3 uid="uid://b4r8dksu3kfe8"]
 
 [ext_resource type="Shader" path="res://BlurShader.gdshader" id="1_7qd24"]
 [ext_resource type="Script" path="res://Menu.gd" id="1_d68gx"]
@@ -6,6 +6,12 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qik26"]
 shader = ExtResource("1_7qd24")
 shader_parameter/lod = 2.5
+
+[sub_resource type="InputEventAction" id="InputEventAction_w8y36"]
+action = &"Start"
+
+[sub_resource type="Shortcut" id="Shortcut_m0tfj"]
+events = [SubResource("InputEventAction_w8y36")]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j642m"]
 font_size = 128
@@ -45,6 +51,7 @@ offset_bottom = 249.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+shortcut = SubResource("Shortcut_m0tfj")
 text = "< Start new Game >"
 flat = true
 
