@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qobw124i3ivj"
+path="res://.godot/imported/240128 - funk 0655 - GGJ2024.mp3-5be5527769206786196350cce41fd057.mp3str"
+
+[deps]
+
+source_file="res://Audio/240128 - funk 0655 - GGJ2024.mp3"
+dest_files=["res://.godot/imported/240128 - funk 0655 - GGJ2024.mp3-5be5527769206786196350cce41fd057.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

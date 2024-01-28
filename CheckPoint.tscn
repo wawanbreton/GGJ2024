@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cof6t2vs4swn6"]
+[gd_scene load_steps=8 format=3 uid="uid://cof6t2vs4swn6"]
 
 [ext_resource type="Script" path="res://CheckPoint.gd" id="1_rolmr"]
+[ext_resource type="AudioStream" uid="uid://yd770uhkr0ac" path="res://Audio/nice sounds/1up.wav" id="2_ln0gx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvwoi"]
 size = Vector3(4, 4, 4)
@@ -48,5 +49,8 @@ modulate = Color(1, 1, 0.152941, 1)
 outline_modulate = Color(0.94902, 0.45098, 0.180392, 1)
 text = "1"
 font_size = 128
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_ln0gx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
