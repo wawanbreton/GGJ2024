@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://pwftcg0e8jsh"
 path.s3tc="res://.godot/imported/pole.png-6a9e2daaf2eff7f3fc85109b39c0e73c.s3tc.ctex"
+path.etc2="res://.godot/imported/pole.png-6a9e2daaf2eff7f3fc85109b39c0e73c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://img/pole.png"
-dest_files=["res://.godot/imported/pole.png-6a9e2daaf2eff7f3fc85109b39c0e73c.s3tc.ctex"]
+dest_files=["res://.godot/imported/pole.png-6a9e2daaf2eff7f3fc85109b39c0e73c.s3tc.ctex", "res://.godot/imported/pole.png-6a9e2daaf2eff7f3fc85109b39c0e73c.etc2.ctex"]
 
 [params]
 

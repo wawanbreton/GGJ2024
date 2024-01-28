@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://co7csjuf5cq8l"
 path.s3tc="res://.godot/imported/brickwall.png-16492d72613c8fc8d9a7c4bfe66b4546.s3tc.ctex"
+path.etc2="res://.godot/imported/brickwall.png-16492d72613c8fc8d9a7c4bfe66b4546.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://img/brickwall.png"
-dest_files=["res://.godot/imported/brickwall.png-16492d72613c8fc8d9a7c4bfe66b4546.s3tc.ctex"]
+dest_files=["res://.godot/imported/brickwall.png-16492d72613c8fc8d9a7c4bfe66b4546.s3tc.ctex", "res://.godot/imported/brickwall.png-16492d72613c8fc8d9a7c4bfe66b4546.etc2.ctex"]
 
 [params]
 
