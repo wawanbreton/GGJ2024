@@ -10,10 +10,11 @@ func get_checked():
 	return !get_node("MeshInstance3D").visible
 
 func set_checked(new_checked):
-	get_node("MeshInstance3D").visible = !new_checked
-	emit_signal("checked_changed", new_checked)
-	if (!get_node("AudioStreamPlayer3D").playing) :
-		get_node("AudioStreamPlayer3D").play()
+	if new_checked != self.checked:
+		get_node("MeshInstance3D").visible = !new_checked
+		emit_signal("checked_changed", new_checked)
+		if (!get_node("AudioStreamPlayer3D").playing) :
+			get_node("AudioStreamPlayer3D").play()
 
 func _on_body_entered(_body):
 	if self.active:

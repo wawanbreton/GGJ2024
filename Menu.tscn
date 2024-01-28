@@ -48,7 +48,7 @@ focus_mode = 0
 text = "< Start new Game >"
 flat = true
 
-[node name="LabelScore" type="Label" parent="."]
+[node name="LabelWin" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -62,9 +62,7 @@ offset_bottom = 263.808
 grow_horizontal = 2
 grow_vertical = 2
 text = "YAAY! You succesfully
-completed the testing run
-
-score"
+completed the testing run"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -84,9 +82,42 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.88, 0.1936, 0.1936, 1)
 text = "Congratulations!
 You successfully broke
-the chair
+the chair"
+horizontal_alignment = 1
 
-score: 9999999"
+[node name="LabelTime" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.329
+anchor_right = 0.5
+anchor_bottom = 0.329
+offset_left = -550.0
+offset_top = 206.808
+offset_right = -42.0
+offset_bottom = 428.808
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.88, 0.1936, 0.1936, 1)
+text = "Time"
+horizontal_alignment = 1
+
+[node name="LabelPoints" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.329
+anchor_right = 0.5
+anchor_bottom = 0.329
+offset_left = 4.0
+offset_top = 207.808
+offset_right = 512.0
+offset_bottom = 429.808
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.88, 0.1936, 0.1936, 1)
+text = "Points
+"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="."]

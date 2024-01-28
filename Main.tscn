@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4ed6petbfp7w"]
+[gd_scene load_steps=14 format=3 uid="uid://b4ed6petbfp7w"]
 
 [ext_resource type="PackedScene" uid="uid://2tm4edtiy5h2" path="res://Floor.tscn" id="1_i0gtf"]
 [ext_resource type="Script" path="res://Main.gd" id="1_yh6gx"]
@@ -16,6 +16,23 @@
 background_mode = 1
 background_color = Color(0.740676, 0.861286, 1, 1)
 
+[sub_resource type="GDScript" id="GDScript_seiqe"]
+resource_name = "global_variables"
+script/source = "extends Node
+
+var ARROW_POINT_AMOUNT = 1
+var CHECKPOINT_AMOUNT = 10
+
+@onready var points: int = 0
+@export var HUD: Control
+
+func update_points(amount):
+	points += amount
+	HUD.label_points.text = str(points)
+	
+
+"
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_yh6gx")
 
@@ -27,10 +44,12 @@ transform = Transform3D(1, 0, 0, 0, 0.467482, 0.884002, 0, -0.884002, 0.467482, 
 
 [node name="Background" parent="." instance=ExtResource("1_i0gtf")]
 
-[node name="HUD" parent="." instance=ExtResource("3_d0lgg")]
+[node name="HUD" parent="." node_paths=PackedStringArray("global_points") instance=ExtResource("3_d0lgg")]
 visible = false
+global_points = NodePath("../GlobalVariables")
 
-[node name="Menu" parent="." instance=ExtResource("4_msian")]
+[node name="Menu" parent="." node_paths=PackedStringArray("global_points") instance=ExtResource("4_msian")]
+global_points = NodePath("../GlobalVariables")
 
 [node name="Checkpoint1" parent="." instance=ExtResource("6_vbe7t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01968, 15.9902)
@@ -62,7 +81,11 @@ streams = Array[AudioStream]([ExtResource("10_0xtbv"), ExtResource("11_mh2vv")])
 transform = Transform3D(1, 0, 2.13163e-14, 0, 1, 0, -2.13163e-14, 0, 1, 0, 1.04002, 0)
 
 [node name="Level" parent="." instance=ExtResource("3_to28k")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="GlobalVariables" type="Node" parent="." node_paths=PackedStringArray("HUD")]
+script = SubResource("GDScript_seiqe")
+HUD = NodePath("../HUD")
 
 [connection signal="countdown_over" from="HUD" to="." method="_on_hud_countdown_over"]
 [connection signal="start_new_game" from="Menu" to="." method="_on_control_start_new_game"]
