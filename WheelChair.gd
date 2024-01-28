@@ -31,7 +31,7 @@ func send_motor_power(direction, power):
 		else:
 			node = get_node("RearRightWheel/Joint")
 			
-		node.set_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY, power * 2)
+		node.set_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY, power * 5)
 
 func _physics_process(delta):
 	var euler = self.global_transform.basis.get_euler()
