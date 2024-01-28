@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0vue61xyekh4"]
+[gd_scene load_steps=12 format=3 uid="uid://d0vue61xyekh4"]
 
 [ext_resource type="Script" path="res://obstacles/obstacles/obstacle_double_doors.gd" id="1_68shm"]
 [ext_resource type="PackedScene" uid="uid://dannx8c4crrn6" path="res://obstacles/obstacle_parts/obstacle_part_door.tscn" id="1_x4ly8"]
+[ext_resource type="Texture2D" uid="uid://cnfva1skemsdh" path="res://img/metalish_thing.png" id="2_gso3p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8p23"]
+albedo_texture = ExtResource("2_gso3p")
 
 [sub_resource type="BoxMesh" id="BoxMesh_x582p"]
 size = Vector3(0.1, 2, 0.1)
@@ -9,8 +13,14 @@ size = Vector3(0.1, 2, 0.1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jmt1m"]
 points = PackedVector3Array(0.0611111, 1.00741, 0.0611111, -0.0574074, -1.00741, -0.0574074, -0.0574074, -1.00741, 0.0611111, -0.0574074, 1.00741, -0.0574074, 0.0611111, -1.00741, -0.0574074, 0.0611111, -1.00741, 0.0611111, -0.0574074, 1.00741, 0.0611111, 0.0611111, 1.00741, -0.0574074)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xu305"]
+albedo_texture = ExtResource("2_gso3p")
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mxrml"]
 points = PackedVector3Array(-0.05, -1, -0.05, -0.05, -1, 0.05, -0.05, 1, -0.05, 0.05, -1, -0.05, 0.05, -1, 0.05, -0.05, 1, 0.05, 0.05, 1, -0.05, 0.05, 1, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d82vx"]
+albedo_texture = ExtResource("2_gso3p")
 
 [sub_resource type="BoxMesh" id="BoxMesh_uipdv"]
 size = Vector3(2, 0.1, 0.1)
@@ -25,6 +35,7 @@ script = ExtResource("1_68shm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DoorFrame"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+material_override = SubResource("StandardMaterial3D_d8p23")
 mesh = SubResource("BoxMesh_x582p")
 skeleton = NodePath("../..")
 
@@ -34,6 +45,7 @@ shape = SubResource("ConvexPolygonShape3D_jmt1m")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="DoorFrame"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+material_override = SubResource("StandardMaterial3D_xu305")
 mesh = SubResource("BoxMesh_x582p")
 skeleton = NodePath("../..")
 
@@ -43,6 +55,7 @@ shape = SubResource("ConvexPolygonShape3D_mxrml")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="DoorFrame"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_d82vx")
 mesh = SubResource("BoxMesh_uipdv")
 skeleton = NodePath("../..")
 
